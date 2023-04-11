@@ -1,20 +1,13 @@
 
 
-interface Artista{
-    nombreArtistico: string;
-    otrosNombres?: string[];
-    grupos?:string[];
-    images?: string[];    // portada y galeria
+interface SeedArtista{
+    artistaGrupo: string[];
+    imgPortada?: string[];
+    galeriaImg?: string[];
     slug: string;
     suscriptores?: number;
-    reside?: string;
     
-    tipo: {
-        artista?: boolean;
-        artistaInternacional?: boolean;
-        productor?: boolean;
-        deejay?: boolean;        
-    },
+    tipo: ValidTypes[],
 
     redes?: {
         facebook?: string;
@@ -43,25 +36,26 @@ interface Artista{
 
     albumes?: string[];
 
-    comentarios?: string[]
+    // comentarios?: string[] // a el artista, cada cancion y a los albumes
 }
 
+type ValidTypes = 'artista' | 'artistaInternacional' | 'productor' | 'deejay';
+
 interface SeedData {
-    artistas : Artista[],
+    artistas: SeedArtista[],
 }
 
 export const initialData: SeedData = {
-
     artistas: [
         {
-            nombreArtistico: "Lapiz Conciente",
-            images: [
+            artistaGrupo: ["Lapiz Conciente"],
+            imgPortada: [
                 'lapizconciente.jpg',
             ],
+            galeriaImg: ['lapizconciente1.jpg', 'lapizconciente2.jpg', 'lapizconciente3.jpg',],
             slug: "lapizconciente",
-            grupos: ["Charles Family", "Complot Records", "El Proyecto"],
+            
             suscriptores: 10,
-            reside: "Santo Domingo",
             redes: {
                 facebook: "lapizconciente",
                 instagram: "lapizconciente",
@@ -75,9 +69,7 @@ export const initialData: SeedData = {
                 texto: "Rapero dominicano oriundo de los minas"
             },
 
-            tipo: {
-                artista: true,
-            },
+            tipo: ["artista"],
 
             videos: {
                 musicales: ["vocales", "internacional"]
@@ -89,7 +81,7 @@ export const initialData: SeedData = {
 
             albumes: ["vocales", "internacional"],
 
-            comentarios: ["el mejor", "duro"],            
+            // comentarios: ["el mejor", "duro"],
         }
     ]
 
