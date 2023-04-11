@@ -1,5 +1,6 @@
 import { FC, ReactNode } from "react";
 import Head from "next/head";
+import { Navbar } from "../ui";
 
 interface Props {
     title: string;
@@ -24,13 +25,15 @@ export const MainLayout:FC<Props> = ({children, title, pageDescription, imageFul
                 )}
             </Head>
 
-            <nav>{/* TODO: navbar */}</nav>
+            <nav>
+                <Navbar/>
+            </nav>
 
             {/* TODO: sidebar */}
 
             <main
                 style={{
-                    margin: "80px auto",
+                    margin: "130px auto",
                     maxWidth: "1440px", // corregir para q ocupe toda la pantalla
                     padding: "0px 30px",
                 }}>

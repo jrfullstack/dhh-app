@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material/styles';
-import { red,  } from '@mui/material/colors';
+import { red, } from '@mui/material/colors';
 
 
 export const lightTheme = createTheme({
@@ -10,6 +10,9 @@ export const lightTheme = createTheme({
     },
     secondary: {
       main: '#3A64D8'
+    },
+    info: {
+      main: '#FFF'
     }
   },
   components: {
@@ -54,6 +57,7 @@ export const lightTheme = createTheme({
         variant: 'contained',
         size: 'small',
         disableElevation: true,
+        color: 'info'
       },
       styleOverrides: {
         root: {
@@ -80,6 +84,6 @@ export const lightTheme = createTheme({
         }
       }
     }
-    
+
   }
 });
