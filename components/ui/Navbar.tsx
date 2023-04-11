@@ -82,7 +82,7 @@ export const Navbar = () => {
                     </NextLink>
                     <NextLink href="/category/videos" passHref legacyBehavior>
                         <Link>
-                            <Button>videos</Button>
+                            <Button>Videos</Button>
                         </Link>
                     </NextLink>
                     <NextLink href="/category/artistas" passHref legacyBehavior>
