@@ -2,6 +2,7 @@ import NextLink from "next/link";
 import { AppBar, Badge, Box, Button, IconButton, InputBase, Link, Paper, Toolbar, Typography } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { AccountCircleOutlined, NotificationsNoneOutlined } from "@mui/icons-material";
+import ThemeUpdater from "../themeMode/ThemeUpdater";
 
 export const Navbar = () => {
     return (
@@ -46,21 +47,18 @@ export const Navbar = () => {
                 </Box>
                 <Box flex={1} />
                 <Box>
-                    <IconButton
-                        type="button"
-                        sx={{ p: "5px" }}
+                    <Button                        
                         aria-label="search">
                         <Badge badgeContent={2} color="secondary">
                             <NotificationsNoneOutlined />
                         </Badge>
-                    </IconButton>
+                    </Button>
 
-                    <IconButton
-                        type="button"
-                        sx={{ p: "5px" }}
-                        aria-label="search">
+                    <Button                        
+                        aria-label="Account">
                         <AccountCircleOutlined />
-                    </IconButton>
+                    </Button>
+                    <ThemeUpdater />
                 </Box>
             </Toolbar>
             {/* <Divider /> */}
