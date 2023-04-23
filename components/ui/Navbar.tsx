@@ -1,11 +1,11 @@
 import NextLink from "next/link";
-import { AppBar, Badge, Box, Button, Divider, IconButton, InputBase, Link, Paper, Toolbar, Typography } from "@mui/material";
+import { AppBar, Badge, Box, Button, IconButton, InputBase, Link, Paper, Toolbar, Typography } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { NotificationsNoneOutlined, PermIdentityOutlined } from "@mui/icons-material";
+import { AccountCircleOutlined, NotificationsNoneOutlined } from "@mui/icons-material";
 
 export const Navbar = () => {
     return (
-        <AppBar>
+        <AppBar color="transparent">
             <Toolbar sx={{ borderBottom: 1, borderColor: "divider" }}>
                 <NextLink href="/" passHref legacyBehavior>
                     <Link display="flex" alignItems="center">
@@ -22,8 +22,7 @@ export const Navbar = () => {
                     //         ? "none"
                     //         : { xs: "none", sm: "block" },
                     // }}
-                    className="fadeIn"
-                >
+                    className="fadeIn">
                     <Paper
                         component="form"
                         sx={{
@@ -50,11 +49,9 @@ export const Navbar = () => {
                     <IconButton
                         type="button"
                         sx={{ p: "5px" }}
-                        aria-label="search"
-                    >
+                        aria-label="search">
                         <Badge badgeContent={2} color="secondary">
-                        <NotificationsNoneOutlined />
-
+                            <NotificationsNoneOutlined />
                         </Badge>
                     </IconButton>
 
@@ -62,37 +59,38 @@ export const Navbar = () => {
                         type="button"
                         sx={{ p: "5px" }}
                         aria-label="search">
-                        <PermIdentityOutlined />
+                        <AccountCircleOutlined />
                     </IconButton>
                 </Box>
             </Toolbar>
-            <Divider />
-            <Toolbar component="nav" variant="dense">
+            {/* <Divider /> */}
+            <Toolbar component="nav" variant="dense" sx={{ boxShadow: 1 }}>
                 <Box flex={1} />
                 <Box sx={{ ml: 0.5 }}>
                     <NextLink href="/" passHref legacyBehavior>
                         <Link>
-                            <Button>Home</Button>
+                            <Button size="medium">Home</Button>
                         </Link>
                     </NextLink>
                     <NextLink href="/category/audios" passHref legacyBehavior>
                         <Link>
-                            <Button>Audios</Button>
+                            <Button size="medium">Audios</Button>
                         </Link>
                     </NextLink>
                     <NextLink href="/category/videos" passHref legacyBehavior>
                         <Link>
-                            <Button>Videos</Button>
+                            <Button size="medium">Videos</Button>
                         </Link>
                     </NextLink>
                     <NextLink href="/category/artistas" passHref legacyBehavior>
                         <Link>
-                            <Button>Artistas</Button>
+                            <Button size="medium">Artistas</Button>
                         </Link>
                     </NextLink>
                 </Box>
                 <Box flex={1} />
             </Toolbar>
+            {/* <Divider /> */}
         </AppBar>
     );
 };
