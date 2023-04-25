@@ -7,5 +7,5 @@ Es una pagina de entretenimiento relacionada con el mundo del HipHop en Republic
 - NextJs
 - Material UI
 
-#### Por Hacer
+#### Por Hacer:
 botones de suscribirse arreglar el hover
