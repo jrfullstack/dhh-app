@@ -61,10 +61,11 @@ export const lightTheme = createTheme({
         root: {
           textTransform: 'none',
           boxShadow: 'none',
-          borderRadius: 10,
+          borderRadius: 5,
           ":hover": {
-            backgroundColor: 'rgba(0,0,0,0.05)',
-            transition: 'all 0.3s ease-in-out'
+            backgroundColor: 'rgba(210,210,210,0.4)',
+            transition: 'all 0.3s ease-in-out',
+            color: 'black'
           }
         }
       }
@@ -79,6 +80,14 @@ export const lightTheme = createTheme({
         root: {
           boxShadow: '0px 5px 5px rgba(0,0,0,0.05)',
           borderRadius: '10px',
+        }
+      }
+    },
+
+    MuiToolbar:{
+      styleOverrides: {
+        root: {
+          backgroundColor: 'white',
         }
       }
     }

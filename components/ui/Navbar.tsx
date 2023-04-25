@@ -6,7 +6,7 @@ import ThemeUpdater from "../themeMode/ThemeUpdater";
 
 export const Navbar = () => {
     return (
-        <AppBar color="transparent">
+        <AppBar>
             <Toolbar sx={{ borderBottom: 1, borderColor: "divider" }}>
                 <NextLink href="/" passHref legacyBehavior>
                     <Link display="flex" alignItems="center">
@@ -47,22 +47,20 @@ export const Navbar = () => {
                 </Box>
                 <Box flex={1} />
                 <Box>
-                    <Button                        
-                        aria-label="search">
+                    <Button aria-label="search">
                         <Badge badgeContent={2} color="secondary">
                             <NotificationsNoneOutlined />
                         </Badge>
                     </Button>
 
-                    <Button                        
-                        aria-label="Account">
+                    <Button aria-label="Account">
                         <AccountCircleOutlined />
                     </Button>
                     <ThemeUpdater />
                 </Box>
             </Toolbar>
             {/* <Divider /> */}
-            <Toolbar component="nav" variant="dense" sx={{ boxShadow: 1 }}>
+            <Toolbar component="nav" variant="dense" sx={{ boxShadow: 1  }}>
                 <Box flex={1} />
                 <Box sx={{ ml: 0.5 }}>
                     <NextLink href="/" passHref legacyBehavior>

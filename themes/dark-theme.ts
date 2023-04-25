@@ -26,7 +26,7 @@ export const darkTheme = createTheme({
       },
       styleOverrides: {
         root: {
-          backgroundColor: '1E1E1E',
+          backgroundColor: '#1E1E1E',
           height: 60
         },
       }
@@ -61,10 +61,11 @@ export const darkTheme = createTheme({
         root: {
           textTransform: 'none',
           boxShadow: 'none',
-          borderRadius: 10,
+          borderRadius: 5,
           ":hover": {
-            backgroundColor: 'rgba(0,0,0,0.05)',
-            transition: 'all 0.3s ease-in-out'
+            backgroundColor: 'rgba(240,240,240,0.2)',
+            transition: 'all 0.3s ease-in-out',
+            color: 'white'
           }
         }
       }
@@ -79,6 +80,14 @@ export const darkTheme = createTheme({
         root: {
           boxShadow: '0px 5px 5px rgba(0,0,0,0.05)',
           borderRadius: '10px',
+        }
+      }
+    },
+
+    MuiToolbar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#121212',
         }
       }
     }

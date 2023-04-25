@@ -35,7 +35,7 @@ export const MainLayout:FC<Props> = ({children, title, pageDescription, imageFul
                 style={{
                     margin: "130px auto",
                     maxWidth: "1440px", // corregir para q ocupe toda la pantalla
-                    padding: "0px 30px",
+                    padding: "0px 30px"
                 }}>
                 {children}
             </main>

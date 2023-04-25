@@ -36,7 +36,7 @@ export const ArtistCard: FC<Props> = ({artista}) => {
                             alignItems: "center",
                             justifyContent: "center",
                         }}>
-                        <FavoriteBorderOutlined fontSize="small" />
+                        <FavoriteBorderOutlined fontSize="small" sx={{pr: '3px'}} />
                         {artista.suscriptores} Suscriptores
                     </Box>
 
