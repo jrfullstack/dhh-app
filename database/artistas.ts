@@ -5,7 +5,7 @@ interface SeedArtista{
     imgPortada?: string;
     // galeriaImg?: string[];
     slug: string;
-    suscriptores?: number;
+    seguidores?: number;
     
     tipo: ValidTypes[],
 
@@ -53,7 +53,7 @@ export const initialData: SeedData = {
             // galeriaImg: ['lapizconciente1.jpg', 'lapizconciente2.jpg', 'lapizconciente3.jpg',],
             slug: "lapizconciente",
             
-            suscriptores: 10,
+            seguidores: 10,
             redes: {
                 facebook: "lapizconciente",
                 instagram: "lapizconciente",
@@ -87,7 +87,7 @@ export const initialData: SeedData = {
             // galeriaImg: ['lapizconciente1.jpg', 'lapizconciente2.jpg', 'lapizconciente3.jpg',],
             slug: "redimi2",
 
-            suscriptores: 10,
+            seguidores: 10,
             redes: {
                 facebook: "lapizconciente",
                 instagram: "lapizconciente",
@@ -121,7 +121,7 @@ export const initialData: SeedData = {
             // galeriaImg: ['lapizconciente1.jpg', 'lapizconciente2.jpg', 'lapizconciente3.jpg',],
             slug: "toxiccrow",
 
-            suscriptores: 10,
+            seguidores: 10,
             redes: {
                 facebook: "lapizconciente",
                 instagram: "lapizconciente",
@@ -155,7 +155,7 @@ export const initialData: SeedData = {
             // galeriaImg: ['lapizconciente1.jpg', 'lapizconciente2.jpg', 'lapizconciente3.jpg',],
             slug: "djstrikeone",
 
-            suscriptores: 10,
+            seguidores: 10,
             redes: {
                 facebook: "lapizconciente",
                 instagram: "lapizconciente",
@@ -189,7 +189,7 @@ export const initialData: SeedData = {
             // galeriaImg: ['lapizconciente1.jpg', 'lapizconciente2.jpg', 'lapizconciente3.jpg',],
             slug: "dkano",
 
-            suscriptores: 10,
+            seguidores: 10,
             redes: {
                 facebook: "lapizconciente",
                 instagram: "lapizconciente",
@@ -223,7 +223,7 @@ export const initialData: SeedData = {
             // galeriaImg: ['lapizconciente1.jpg', 'lapizconciente2.jpg', 'lapizconciente3.jpg',],
             slug: "villaman",
 
-            suscriptores: 10,
+            seguidores: 10,
             redes: {
                 facebook: "lapizconciente",
                 instagram: "lapizconciente",
