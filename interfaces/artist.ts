@@ -4,7 +4,7 @@ export interface IArtist {
     imgPortada?: string;
     galeriaImg?: string[];
     slug: string;
-    suscriptores?: number;
+    seguidores?: number;
 
     tipo: ITypes[],
 

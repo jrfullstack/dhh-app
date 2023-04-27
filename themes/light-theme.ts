@@ -90,6 +90,17 @@ export const lightTheme = createTheme({
           backgroundColor: 'white',
         }
       }
+    },
+    MuiPaper:{
+      defaultProps: {
+        elevation: 4
+      }
+    },
+
+    MuiBottomNavigationAction:{
+      defaultProps: {
+        
+      }      
     }
 
   }

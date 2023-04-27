@@ -135,7 +135,7 @@ export const initialData: SeedData = {
                 texto: "Rapero dominicano oriundo de los minas"
             },
 
-            tipo: ["artista"],
+            tipo: ["artista", "productor"],
 
             // videos: {
             //     musicales: ["vocales", "internacional"]
