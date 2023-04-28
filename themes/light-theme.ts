@@ -11,6 +11,9 @@ export const lightTheme = createTheme({
     },
     info: {
       main: '#FFF'
+    },
+    error: {
+      main: '#DE260E'
     }
   },
   components: {

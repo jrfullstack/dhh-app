@@ -11,6 +11,9 @@ export const darkTheme = createTheme({
         },
         info: {
             main: '#121212'
+        },
+        error: {
+          main: '#DE260E'
         }
     },
     components: {

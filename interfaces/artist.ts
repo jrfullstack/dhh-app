@@ -1,5 +1,5 @@
 export interface IArtist {
-    id: string;
+    // id: string;
     interprete: string;
     imgPortada?: string;
     galeriaImg?: string[];

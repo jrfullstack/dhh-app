@@ -1,140 +1,137 @@
-// import { FC, useState } from "react";
-import * as React from "react";
+import { useState } from "react";
+import { Box, Grid, Paper, Tab, Tabs } from "@mui/material";
+// import Tab from "@mui/material/Tab";
+
 import { MainLayout } from "@/components/layouts"
 import { initialData } from "@/database/artistas"
+import { ArtistProfile } from "@/components/artistas/ArtistProfile";
+import { ArtistNavi } from "@/components/artistas/ArtistNavi";
+import { TabContext, TabList, TabPanel } from "@mui/lab";
 import {
     AlbumOutlined,
     CollectionsOutlined,
     ContactPageOutlined,
     Diversity3Outlined,
-    FavoriteBorderOutlined,
     LyricsOutlined,
     MusicVideoOutlined,
     OndemandVideoOutlined,
 } from "@mui/icons-material";
-import { Avatar, BottomNavigation, BottomNavigationAction, Box, Button, Divider, Grid, List, ListItem, Paper, Stack, Typography, styled } from "@mui/material";
 
-const artista = initialData.artistas[2];
 
-const tipos = artista.tipo.map((tipo) => (    
-    <li key={tipo}>{tipo.charAt(0).toUpperCase() + tipo.slice(1)} </li>    
-));
+const artista = initialData.artistas[1];
 
-export default function slug()  {
-	const [value, setValue] = React.useState(0);
+export default function Slug()  {
+	const [value, setValue] = useState("1");
+
+    const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+        setValue(newValue);
+    };
+
 	return (
         <MainLayout
             title={`${artista.interprete} | DHH`}
             pageDescription={`Seccion del artista ${artista.interprete}`}>
             <Grid container spacing={3}>
                 <Grid item xs={12} sm={12}>
-                    <Paper
-                        elevation={4}
-                        sx={{
-                            paddingY: 3,
-                            paddingX: 4,
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "space-between",
-                        }}>
-                        <Box>
-                            <Avatar
-                                alt={artista.interprete}
-                                src={`/img/artistas/${artista.imgPortada}`}
-                                sx={{
-                                    width: 150,
-                                    height: 150,
-                                    border: "2px solid #DE260E",
-                                }}
-                            />
-                        </Box>
-                        <Box>
-                            <Typography
-                                variant="h1"
-                                component="h1"
-                                color="initial">
-                                {artista.interprete}
-                            </Typography>
-                            <List sx={{ textAlign: "center" }}>
-                                {/* <ListItem> */}
-                                {tipos}
-                                {/* </ListItem> */}
-                            </List>
-                            <Box
-                                sx={{
-                                    mt: 1,
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    color: "GrayText",
-                                }}>
-                                <FavoriteBorderOutlined
-                                    fontSize="small"
-                                    sx={{ pr: "3px" }}
-                                />
-                                {artista.seguidores} Seguidores
-                            </Box>
-                        </Box>
-                        <Box sx={{ display: "flex", flexDirection: "column" }}>
-                            <Button
-                                variant="contained"
-                                sx={{ mb: 2, paddingX: 3 }}
-                                color="primary"
-                                startIcon={<ContactPageOutlined />}>
-                                {/* <FavoriteOutlined /> */}
-                                Biografia
-                            </Button>
-                            <Button
-                                variant="contained"
-                                sx={{ mb: 2, paddingX: 3 }}
-                                color="error"
-                                startIcon={<FavoriteBorderOutlined />}>
-                                {/* <FavoriteOutlined /> */}
-                                Seguir
-                            </Button>
-                        </Box>
-                    </Paper>
+                    <ArtistProfile artista={artista} />
                 </Grid>
 
                 <Grid item xs={12} sm={12}>
-                    <Paper sx={{ paddingY: 3 }}>
-                        <BottomNavigation
-                            sx={{ backgroundColor: "transparent" }}
-                            showLabels
-                            value={value}
-                            onChange={(event, newValue) => {
-                                setValue(newValue);
-                            }}>
-                            <BottomNavigationAction
-                                label="Audios"
-                                icon={<MusicVideoOutlined />}
-                            />
-                            <BottomNavigationAction
-                                label="Albumes"
-                                icon={<AlbumOutlined />}
-                            />
-                            <BottomNavigationAction
-                                label="Videos"
-                                icon={<OndemandVideoOutlined />}
-                            />
-                            <BottomNavigationAction
-                                label="Liricas"
-                                icon={<LyricsOutlined />}
-                            />
-                            <BottomNavigationAction
-                                label="Galeria"
-                                icon={<CollectionsOutlined />}
-                            />
-                            <BottomNavigationAction
-                                label="Redes Sociales"
-                                icon={<Diversity3Outlined />}
-                            />
-                            <BottomNavigationAction
-                                label="Biografia"
-                                icon={<ContactPageOutlined />}
-                            />
-                        </BottomNavigation>
-                    </Paper>
+                    {/* <ArtistNavi /> */}
+                    <TabContext value={value}>
+                        <Paper sx={{ paddingY: 2 }}>
+                            <Box
+                                sx={
+                                    {
+                                        // borderBottom: 1,
+                                        // borderColor: "divider",
+                                        // display: "flex",
+                                        // justifyContent: "center",
+                                    }
+                                }>
+                                <Tabs
+                                    textColor="secondary"
+                                    indicatorColor="secondary"
+                                    variant="scrollable"
+                                    scrollButtons
+                                    allowScrollButtonsMobile
+                                    value={value}
+                                    onChange={handleChange}
+                                    aria-label="Iconos del menu de artista">
+                                    <Tab
+                                        icon={<MusicVideoOutlined />}
+                                        label="Audios"
+                                        value="1"
+                                        sx={{
+                                            minWidth: "fit-content",
+                                            flex: 1,
+                                        }}
+                                    />
+                                    <Tab
+                                        icon={<AlbumOutlined />}
+                                        label="Albumes"
+                                        value="2"
+                                        sx={{
+                                            minWidth: "fit-content",
+                                            flex: 1,
+                                        }}
+                                    />
+                                    <Tab
+                                        icon={<OndemandVideoOutlined />}
+                                        label="Videos"
+                                        value="3"
+                                        sx={{
+                                            minWidth: "fit-content",
+                                            flex: 1,
+                                        }}
+                                    />
+                                    <Tab
+                                        icon={<LyricsOutlined />}
+                                        label="Liricas"
+                                        value="4"
+                                        sx={{
+                                            minWidth: "fit-content",
+                                            flex: 1,
+                                        }}
+                                    />
+                                    <Tab
+                                        icon={<CollectionsOutlined />}
+                                        label="Galeria"
+                                        value="5"
+                                        sx={{
+                                            minWidth: "fit-content",
+                                            flex: 1,
+                                        }}
+                                    />
+                                    <Tab
+                                        icon={<Diversity3Outlined />}
+                                        label="Redes Sociales"
+                                        value="6"
+                                        sx={{
+                                            minWidth: "fit-content",
+                                            flex: 1,
+                                        }}
+                                    />
+                                    <Tab
+                                        icon={<ContactPageOutlined />}
+                                        label="Biografia"
+                                        value="7"
+                                        sx={{
+                                            minWidth: "fit-content",
+                                            flex: 1,
+                                        }}
+                                    />
+                                </Tabs>
+                            </Box>
+                        </Paper>
+                        <TabPanel value="1">Item 1</TabPanel>
+                        <TabPanel value="2">Item 2</TabPanel>
+                        <TabPanel value="3">Item 3</TabPanel>
+                        <TabPanel value="4">Item 4</TabPanel>
+                        <TabPanel value="5">Item 5</TabPanel>
+                        <TabPanel value="6">Item 6</TabPanel>
+                        <TabPanel value="7">Item 7</TabPanel>
+                    </TabContext>
                 </Grid>
             </Grid>
         </MainLayout>
