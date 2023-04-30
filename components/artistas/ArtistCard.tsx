@@ -58,9 +58,9 @@ export const ArtistCard: FC<Props> = ({artista}) => {
                         }}>
                         <FavoriteBorderOutlined
                             fontSize="small"
-                            sx={{ pr: "3px" }}
+                            sx={{ pr: "3px", color: "GrayText" }}
                         />
-                        {artista.seguidores} Seguidores
+                        {artista.seguidores} Me gusta
                     </Box>
 
                     <Button

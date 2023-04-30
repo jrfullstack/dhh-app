@@ -39,7 +39,7 @@ interface SeedArtista{
     // comentarios?: string[] // a el artista, cada cancion y a los albumes
 }
 
-type ValidTypes = 'artista' | 'artistaInternacional' | 'productor' | 'deejay';
+type ValidTypes = 'Artista' | 'Artista Internacional' | 'Productor' | 'Deejay' | 'Break Dance' | 'Graffiti';
 
 interface SeedData {
     artistas: SeedArtista[],
@@ -67,7 +67,7 @@ export const initialData: SeedData = {
                 texto: "Rapero dominicano oriundo de los minas"
             },
 
-            tipo: ["artista"],
+            tipo: ["Artista"],
 
             // videos: {
             //     musicales: ["vocales", "internacional"]
@@ -101,7 +101,7 @@ export const initialData: SeedData = {
                 texto: "Rapero dominicano oriundo de los minas"
             },
 
-            tipo: ["artista"],
+            tipo: ["Artista"],
 
             // videos: {
             //     musicales: ["vocales", "internacional"]
@@ -135,7 +135,7 @@ export const initialData: SeedData = {
                 texto: "Rapero dominicano oriundo de los minas"
             },
 
-            tipo: ["artista", "productor"],
+            tipo: ["Artista", "Productor"],
 
             // videos: {
             //     musicales: ["vocales", "internacional"]
@@ -169,7 +169,7 @@ export const initialData: SeedData = {
                 texto: "Rapero dominicano oriundo de los minas"
             },
 
-            tipo: ["artista"],
+            tipo: ["Artista"],
 
             // videos: {
             //     musicales: ["vocales", "internacional"]
@@ -203,7 +203,7 @@ export const initialData: SeedData = {
                 texto: "Rapero dominicano oriundo de los minas"
             },
 
-            tipo: ["artista"],
+            tipo: ["Artista"],
 
             // videos: {
             //     musicales: ["vocales", "internacional"]
@@ -237,7 +237,7 @@ export const initialData: SeedData = {
                 texto: "Rapero dominicano oriundo de los minas"
             },
 
-            tipo: ["artista"],
+            tipo: ["Artista"],
 
             // videos: {
             //     musicales: ["vocales", "internacional"]

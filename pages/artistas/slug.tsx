@@ -40,15 +40,7 @@ export default function Slug()  {
                     {/* <ArtistNavi /> */}
                     <TabContext value={value}>
                         <Paper sx={{ paddingY: 2 }}>
-                            <Box
-                                sx={
-                                    {
-                                        // borderBottom: 1,
-                                        // borderColor: "divider",
-                                        // display: "flex",
-                                        // justifyContent: "center",
-                                    }
-                                }>
+                            <Box>
                                 <Tabs
                                     textColor="secondary"
                                     indicatorColor="secondary"
