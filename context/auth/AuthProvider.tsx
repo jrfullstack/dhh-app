@@ -6,7 +6,7 @@ import axios from 'axios';
 
 import { AuthContext, authReducer } from './';
 
-import { tiendaOnlineApi } from '../../api2';
+import { tiendaOnlineApi } from '../../api';
 import { IUser } from '../../interfaces';
 
 

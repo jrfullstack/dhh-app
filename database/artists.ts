@@ -1,6 +1,6 @@
 
 
-interface SeedArtista{
+interface SeedArtist{
     interprete: string;
     imgPortada?: string;
     galeriaImg?: string[];
@@ -24,7 +24,7 @@ interface SeedArtista{
 type ValidTypes = 'Artista' | 'Artista Internacional' | 'Productor' | 'Deejay' | 'Break Dance' | 'Graffiti';
 
 interface SeedData {
-    artistas: SeedArtista[],
+    artistas: SeedArtist[],
 }
 
 export const initialData: SeedData = {

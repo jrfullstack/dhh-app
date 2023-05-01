@@ -22,7 +22,10 @@ const artistSchema = new Schema({
         spotify: { type: String },
         youtube: { type: String },
     },
-    biografia: { type: String },
+    biografia: {
+        wikipedia: { type: String },
+        texto: { type: String },
+    },
 },{
     timestamps: true
 });

@@ -3,7 +3,7 @@ import { Box, Grid, Paper, Tab, Tabs } from "@mui/material";
 // import Tab from "@mui/material/Tab";
 
 import { MainLayout } from "@/components/layouts"
-import { initialData } from "@/database/artistas"
+import { initialData } from "@/database/artists"
 import { ArtistProfile } from "@/components/artistas/ArtistProfile";
 import { ArtistNavi } from "@/components/artistas/ArtistNavi";
 import { TabContext, TabList, TabPanel } from "@mui/lab";

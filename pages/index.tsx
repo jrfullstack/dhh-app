@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google';
 import { Typography } from '@mui/material';
 
 import { MainLayout } from '@/components/layouts';
-import { initialData } from '@/database/artistas';
+import { initialData } from '@/database/artists';
 import { ArtistaList } from '@/components/artistas';
 
 

@@ -1,6 +1,6 @@
 import { ArtistaList } from '@/components/artistas';
 import { MainLayout } from '@/components/layouts';
-import { initialData } from '@/database/artistas';
+import { initialData } from '@/database/artists';
 import { Groups2Rounded } from '@mui/icons-material';
 import { Box, Chip, Tooltip, Typography, IconButton } from '@mui/material';
 import React from 'react'
