@@ -21,7 +21,7 @@ interface SeedArtist{
     },
 }
 
-type ValidTypes = 'Artista' | 'Artista Internacional' | 'Productor' | 'Deejay' | 'Break Dance' | 'Graffiti';
+type ValidTypes = 'artista' | 'artista Internacional' | 'productor' | 'deejay' | 'break dance' | 'graffiti';
 
 interface SeedData {
     artistas: SeedArtist[],
@@ -49,7 +49,7 @@ export const initialData: SeedData = {
                 texto: "Rapero dominicano oriundo de los minas"
             },
 
-            tipo: ["Artista"],
+            tipo: ["artista"],
         },
         {
             interprete: "Redimi2",
@@ -71,7 +71,7 @@ export const initialData: SeedData = {
                 texto: "Rapero dominicano oriundo de los minas"
             },
 
-            tipo: ["Artista"],
+            tipo: ["artista"],
 
             // videos: {
             //     musicales: ["vocales", "internacional"]
@@ -105,7 +105,7 @@ export const initialData: SeedData = {
                 texto: "Rapero dominicano oriundo de los minas"
             },
 
-            tipo: ["Artista", "Productor"],
+            tipo: ["artista", "productor"],
 
             // videos: {
             //     musicales: ["vocales", "internacional"]
@@ -139,7 +139,7 @@ export const initialData: SeedData = {
                 texto: "Rapero dominicano oriundo de los minas"
             },
 
-            tipo: ["Artista"],
+            tipo: ["artista"],
 
             // videos: {
             //     musicales: ["vocales", "internacional"]
@@ -173,7 +173,7 @@ export const initialData: SeedData = {
                 texto: "Rapero dominicano oriundo de los minas"
             },
 
-            tipo: ["Artista"],
+            tipo: ["artista"],
 
             // videos: {
             //     musicales: ["vocales", "internacional"]
@@ -207,7 +207,7 @@ export const initialData: SeedData = {
                 texto: "Rapero dominicano oriundo de los minas"
             },
 
-            tipo: ["Artista"],
+            tipo: ["artista"],
 
             // videos: {
             //     musicales: ["vocales", "internacional"]

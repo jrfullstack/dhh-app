@@ -10,7 +10,7 @@ const artistSchema = new Schema({
     tipo:[{
         type: String,
         enum:{
-            values: ['Artista', 'Artista Internacional', 'Productor', 'Deejay', 'Break Dance', 'Graffiti'],
+            values: ['artista', 'artista internacional', 'productor', 'deejay', 'break dance', 'graffiti'],
             message: '{VALUE} no es un tipo valido'
         }
     }],
@@ -30,7 +30,8 @@ const artistSchema = new Schema({
     timestamps: true
 });
 
-// todo: crear indice
+// indice para las busquedas
+artistSchema.index({ interprete: 'text' });
 
 const Artist: Model<IArtist> = mongoose.models.Artist || model('Artist', artistSchema);
 

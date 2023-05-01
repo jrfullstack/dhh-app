@@ -41,5 +41,5 @@ export interface IArtist {
     updatedAt: string;
 }
 
-export type ITypes = 'artista' | 'artistaInternacional' | 'productor' | 'deejay';
+export type ITypes = 'artista' | 'artista Internacional' | 'productor' | 'deejay' | 'break dance' | 'graffiti';
 
