@@ -1,5 +1,5 @@
 export interface IArtist {
-    // id: string;
+    _id: string;
     interprete: string;
     imgPortada?: string;
     galeriaImg?: string[];
@@ -22,22 +22,23 @@ export interface IArtist {
         texto?: string;
     },
 
-    videos?: {
-        musicales?: string[];
-        entrevistas?: string[];
-        conciertos?: string[];
-    },
+    // videos?: {
+    //     musicales?: string[];
+    //     entrevistas?: string[];
+    //     conciertos?: string[];
+    // },
 
-    audios?: {
-        musicales?: string[];
-        freestyle?: string[];
-    }
+    // audios?: {
+    //     musicales?: string[];
+    //     freestyle?: string[];
+    // }
 
-    albumes?: string[];
+    // albumes?: string[];
 
     // comentarios?: string[] // a el artista, cada cancion y a los albumes
 
-    // todo: createdAt y UpdatedAt
+    createdAt: string;
+    updatedAt: string;
 }
 
 export type ITypes = 'artista' | 'artistaInternacional' | 'productor' | 'deejay';

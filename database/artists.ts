@@ -1,6 +1,6 @@
 
 
-interface SeedArtist{
+interface SeedArtist{    
     interprete: string;
     imgPortada?: string;
     galeriaImg?: string[];
