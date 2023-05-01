@@ -12,7 +12,7 @@ export const ArtistaList: FC <Props> = ({artistas}) => {
 	return (
         <Grid container spacing={4}>
             {artistas.map((artista) => (
-                    // poner el id
+                    // TODO: poner el id
                     <ArtistCard key={artista.slug} artista={artista} />
                 ))
             }
