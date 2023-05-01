@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const tiendaOnlineApi = axios.create ({
+const dhhApi = axios.create ({
   baseURL: '/api'
 })
 
-export default tiendaOnlineApi;
+export default dhhApi;
