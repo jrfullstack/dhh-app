@@ -5,6 +5,7 @@ Es una App de entretenimiento, musica video, lirica, etc.
 ### Dependencias hasta el momento
 - NextJS
 - Material UI
+- Mongoose
 
 # Next.js DHH App
 Para correr localmente, se necesita la base de datos.

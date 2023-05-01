@@ -36,6 +36,9 @@ export interface IArtist {
     albumes?: string[];
 
     // comentarios?: string[] // a el artista, cada cancion y a los albumes
+
+    // todo: createdAt y UpdatedAt
 }
 
 export type ITypes = 'artista' | 'artistaInternacional' | 'productor' | 'deejay';
+

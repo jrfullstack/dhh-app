@@ -3,12 +3,10 @@
 interface SeedArtista{
     interprete: string;
     imgPortada?: string;
-    // galeriaImg?: string[];
+    galeriaImg?: string[];
     slug: string;
-    seguidores?: number;
-    
+    seguidores?: number;    
     tipo: ValidTypes[],
-
     redes?: {
         facebook?: string;
         instagram?: string;
@@ -17,26 +15,10 @@ interface SeedArtista{
         spotify?: string;
         youtube?: string;
     },
-
     biografia?: {
         wikipedia?: string;
         texto?: string;
     },
-
-    // videos?: {
-    //     musicales?: string[];
-    //     entrevistas?: string[];
-    //     conciertos?: string[];
-    // },
-
-    // audios?: {
-    //     musicales?: string[];
-    //     freestyle?: string[];        
-    // }
-
-    // albumes?: string[];
-
-    // comentarios?: string[] // a el artista, cada cancion y a los albumes
 }
 
 type ValidTypes = 'Artista' | 'Artista Internacional' | 'Productor' | 'Deejay' | 'Break Dance' | 'Graffiti';
@@ -50,7 +32,7 @@ export const initialData: SeedData = {
         {
             interprete: "Lapiz Conciente",
             imgPortada: 'lapizconciente.jpg',
-            // galeriaImg: ['lapizconciente1.jpg', 'lapizconciente2.jpg', 'lapizconciente3.jpg',],
+            galeriaImg: ['lapizconciente1.jpg', 'lapizconciente2.jpg', 'lapizconciente3.jpg',],
             slug: "lapizconciente",
             
             seguidores: 10,
@@ -68,18 +50,6 @@ export const initialData: SeedData = {
             },
 
             tipo: ["Artista"],
-
-            // videos: {
-            //     musicales: ["vocales", "internacional"]
-            // },
-
-            // audios: {
-            //     musicales: ["vocales", "internacional"]
-            // },
-
-            // albumes: ["vocales", "internacional"],
-
-            // comentarios: ["el mejor", "duro"],
         },
         {
             interprete: "Redimi2",
