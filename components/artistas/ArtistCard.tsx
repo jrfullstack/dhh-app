@@ -21,7 +21,7 @@ export const ArtistCard: FC<Props> = ({artista}) => {
                             <CardMedia
                                 component="img"
                                 height="250"
-                                image={`img/artistas/${artista.imgPortada}`}
+                                image={`/img/artistas/${artista.imgPortada}`}
                                 alt={artista.interprete}
                             />
                         </CardActionArea>

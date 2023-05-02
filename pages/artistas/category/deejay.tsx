@@ -1,20 +1,20 @@
-import React, { FC } from 'react';
-import { Groups2Rounded } from '@mui/icons-material';
-import { Box, Typography } from '@mui/material';
-import { initialData } from '@/database/artists';
-import { useArtists } from '@/hooks';
-import { MainLayout } from '@/components/layouts';
-import { ArtistaList } from '@/components/artistas';
-import { FullScreenLoading } from '@/components/ui';
+import { NextPage } from "next";
+import { Box, Typography } from "@mui/material";
 
-const Index = () => {
+import { AdjustOutlined } from "@mui/icons-material";
 
-    const { artists, isLoading } = useArtists("/artists");
-    
+import { MainLayout } from "@/components/layouts";
+import { ArtistaList } from "@/components/artistas";
+import { useArtists } from "@/hooks";
+import { FullScreenLoading } from "@/components/ui";
+
+const DeejayPage: NextPage = () => {
+    const { artists, isLoading } = useArtists("/artists?tipo=deejay");
+
     return (
         <MainLayout
-            title={"Artistas | DHH"}
-            pageDescription={"Seccion de artistas"}>
+            title={"Grafiteros | DHH"}
+            pageDescription={"Seccion de Deejay`s dominicanos"}>
             <Typography variant="h1" sx={{ mb: 1 }}>
                 <Box
                     component="span"
@@ -22,7 +22,7 @@ const Index = () => {
                         display: "flex",
                         alignItems: "center",
                     }}>
-                    <Groups2Rounded
+                    <AdjustOutlined
                         fontSize="large"
                         sx={{
                             mr: 2,
@@ -33,10 +33,10 @@ const Index = () => {
                             color: "white",
                         }}
                     />
-                    Todos los Artistas
+                    Deejay`s
                 </Box>
             </Typography>
-            
+
             {isLoading ? (
                 <FullScreenLoading />
             ) : (
@@ -44,6 +44,6 @@ const Index = () => {
             )}
         </MainLayout>
     );
-}
+};
 
-export default Index
+export default DeejayPage;

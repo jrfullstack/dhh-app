@@ -5,10 +5,10 @@ import { ArtistCard } from "./ArtistCard";
 
 
 interface Props {
-	artistas: IArtist[];
+	artists: IArtist[];
 }
 
-export const ArtistaList: FC <Props> = ({artistas}) => {
+export const ArtistaList: FC <Props> = ({artists: artistas}) => {
 	return (
         <Grid container spacing={4}>
             {artistas.map((artista) => (

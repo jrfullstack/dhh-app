@@ -1,21 +1,10 @@
-import { useState } from "react";
 import NextLink from "next/link";
-import { useRouter } from 'next/router';
-import { AppBar, Badge, Box, Button, IconButton, InputBase, Link, Menu, MenuItem, Paper, Toolbar, Typography } from "@mui/material";
+import { AppBar, Badge, Box, Button, IconButton, InputBase, Link, Paper, Toolbar, Typography } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { AccountCircleOutlined, AdjustOutlined, InterpreterModeOutlined, MicNoneOutlined, NotificationsNoneOutlined, SportsMartialArtsOutlined, TuneOutlined, VrpanoOutlined } from "@mui/icons-material";
+import { AccountCircleOutlined, NotificationsNoneOutlined } from "@mui/icons-material";
 import ThemeUpdater from "../themeMode/ThemeUpdater";
-import { DropDownArtistas } from "./DropDownArtistas";
-
-
-
 
 export const Navbar = () => {
-
-    const { asPath } = useRouter();
-    
-
-
     return (
         <AppBar>
             <Toolbar sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -76,42 +65,24 @@ export const Navbar = () => {
                 <Box sx={{ ml: 0.5 }}>
                     <NextLink href="/" passHref legacyBehavior>
                         <Link>
-                            <Button
-                                size="medium"
-                                color={asPath === "/" ? "primary" : "info"}>
-                                Home
-                            </Button>
+                            <Button size="medium">Home</Button>
                         </Link>
                     </NextLink>
                     <NextLink href="/category/audios" passHref legacyBehavior>
                         <Link>
-                            <Button
-                                size="medium"
-                                color={
-                                    asPath === "/category/audios"
-                                        ? "primary"
-                                        : "info"
-                                }>
-                                Audios
-                            </Button>
+                            <Button size="medium">Audios</Button>
                         </Link>
                     </NextLink>
                     <NextLink href="/category/videos" passHref legacyBehavior>
                         <Link>
-                            <Button
-                                size="medium"
-                                color={
-                                    asPath === "/category/videos"
-                                        ? "primary"
-                                        : "info"
-                                }>
-                                Videos
-                            </Button>
+                            <Button size="medium">Videos</Button>
                         </Link>
                     </NextLink>
-
-                    {/* Menu desplegable de artistas */}
-                    <DropDownArtistas/>
+                    <NextLink href="/artistas" passHref legacyBehavior>
+                        <Link>
+                            <Button size="medium">Artistas</Button>
+                        </Link>
+                    </NextLink>
                 </Box>
                 <Box flex={1} />
             </Toolbar>

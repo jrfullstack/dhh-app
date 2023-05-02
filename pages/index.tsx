@@ -4,19 +4,23 @@ import { Inter } from 'next/font/google';
 import { Typography } from '@mui/material';
 
 import { MainLayout } from '@/components/layouts';
-import { initialData } from '@/database/artists';
+// import { initialData } from '@/database/artists';
 import { ArtistaList } from '@/components/artistas';
+import { useArtists } from '@/hooks';
+import { FullScreenLoading } from '@/components/ui';
 
 
-const inter = Inter({ subsets: ['latin'] })
+const HomePage: NextPage = () => {
 
- 
+    
+    const {artists, isLoading} = useArtists('/artists')
 
-const Home: NextPage = () => {
 	return (
         <MainLayout
             title={"DominicanHipHop.Com"}
-            pageDescription={"Pagina Oficial del Hip Hop Dominicano"}>
+            pageDescription={"Pagina Oficial del Hip Hop Dominicano"}
+            
+        >
             {/* <Typography>
                 DominicanHipHop
             </Typography> */}
@@ -24,9 +28,15 @@ const Home: NextPage = () => {
                 Todos los Artistas
             </Typography>
 
-            <ArtistaList artistas={initialData.artistas as any}/>
+            {
+                isLoading
+                    ? <FullScreenLoading/>
+                    : <ArtistaList artists={artists}/>
+            }
+
+            
         </MainLayout>
     );
 }
 
-export default Home;
+export default HomePage;
