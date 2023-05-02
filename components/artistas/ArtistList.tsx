@@ -10,10 +10,9 @@ interface Props {
 
 export const ArtistaList: FC <Props> = ({artists: artistas}) => {
 	return (
-        <Grid container spacing={4}>
+        <Grid container spacing={2}>
             {artistas.map((artista) => (
-                    // TODO: poner el id
-                    <ArtistCard key={artista.slug} artista={artista} />
+                    <ArtistCard key={artista._id} artista={artista} />
                 ))
             }
         </Grid>
