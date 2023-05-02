@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import NextLink from "next/link";
 import { useRouter } from 'next/router';
 import { AppBar, Badge, Box, Button, IconButton, InputBase, Link, Menu, MenuItem, Paper, Toolbar, Typography } from "@mui/material";
@@ -6,6 +6,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { AccountCircleOutlined, AdjustOutlined, InterpreterModeOutlined, MicNoneOutlined, NotificationsNoneOutlined, SportsMartialArtsOutlined, TuneOutlined, VrpanoOutlined } from "@mui/icons-material";
 import ThemeUpdater from "../themeMode/ThemeUpdater";
 import { DropDownArtistas } from "./DropDownArtistas";
+import { UiContext } from "@/context";
 
 
 
@@ -13,6 +14,7 @@ import { DropDownArtistas } from "./DropDownArtistas";
 export const Navbar = () => {
 
     const { asPath } = useRouter();
+    const {toggleSideMenu} = useContext(UiContext);
     
 
 
@@ -58,16 +60,17 @@ export const Navbar = () => {
                 </Box>
                 <Box flex={1} />
                 <Box>
-                    <Button aria-label="search">
+                    {/* <Button aria-label="search">
                         <Badge badgeContent={2} color="secondary">
                             <NotificationsNoneOutlined />
                         </Badge>
-                    </Button>
+                    </Button> */}
 
                     <Button aria-label="Account">
                         <AccountCircleOutlined />
                     </Button>
                     <ThemeUpdater />
+                    <Button onClick={toggleSideMenu}>Menu</Button>
                 </Box>
             </Toolbar>
             {/* <Divider /> */}
@@ -111,7 +114,7 @@ export const Navbar = () => {
                     </NextLink>
 
                     {/* Menu desplegable de artistas */}
-                    <DropDownArtistas/>
+                    <DropDownArtistas />
                 </Box>
                 <Box flex={1} />
             </Toolbar>

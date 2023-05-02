@@ -24,16 +24,29 @@ import {
     SearchOutlined,
     VpnKeyOutlined,
 } from "@mui/icons-material";
+import { useContext } from "react";
+import { UiContext } from "@/context";
+import { useRouter } from "next/router";
 
 export const SideMenu = () => {
+    const router = useRouter();
+
+    const {isMenuOpen, toggleSideMenu} = useContext(UiContext);
+
+    const navigateTo = (url:string) => {
+        toggleSideMenu();
+        router.push(url);
+    }
     return (
         <Drawer
-            open={false}
-            anchor="left"
+            open={isMenuOpen}
+            anchor="right"
             sx={{
                 backdropFilter: "blur(4px)",
                 transition: "all 0.5s ease-out",
-            }}>
+            }}
+            onClose={toggleSideMenu}
+        >
             <Box sx={{ width: 250, paddingTop: 5 }}>
                 <List>
                     <ListItem>
@@ -84,25 +97,32 @@ export const SideMenu = () => {
 
                     {/* Categorias */}
                     <Divider sx={{ display: { xs: "", sm: "none" } }} />
+                    
                     <ListSubheader sx={{ display: { xs: "", sm: "none" } }}>
                         Categorias
                     </ListSubheader>
 
-                    <ListItemButton sx={{ display: { xs: "", sm: "none" } }}>
+                    <ListItemButton
+                        sx={{ display: { xs: "", sm: "none" } }}
+                        onClick={() => navigateTo("/audios")}>
                         <ListItemIcon>
                             <MusicVideoOutlined />
                         </ListItemIcon>
                         <ListItemText primary={"Audios"} />
                     </ListItemButton>
 
-                    <ListItemButton sx={{ display: { xs: "", sm: "none" } }}>
+                    <ListItemButton
+                        sx={{ display: { xs: "", sm: "none" } }}
+                        onClick={() => navigateTo("/Videos")}>
                         <ListItemIcon>
                             <OndemandVideoOutlined />
                         </ListItemIcon>
                         <ListItemText primary={"Videos"} />
                     </ListItemButton>
 
-                    <ListItemButton sx={{ display: { xs: "", sm: "none" } }}>
+                    <ListItemButton
+                        sx={{ display: { xs: "", sm: "none" } }}
+                        onClick={() => navigateTo("/artistas")}>
                         <ListItemIcon>
                             <PortraitOutlined />
                         </ListItemIcon>
