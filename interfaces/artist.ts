@@ -22,24 +22,9 @@ export interface IArtist {
         texto?: string;
     },
 
-    // videos?: {
-    //     musicales?: string[];
-    //     entrevistas?: string[];
-    //     conciertos?: string[];
-    // },
-
-    // audios?: {
-    //     musicales?: string[];
-    //     freestyle?: string[];
-    // }
-
-    // albumes?: string[];
-
-    // comentarios?: string[] // a el artista, cada cancion y a los albumes
-
     createdAt: string;
     updatedAt: string;
 }
 
-export type ITypes = 'artista' | 'artista Internacional' | 'productor' | 'deejay' | 'break dance' | 'graffiti';
+export type ITypes = 'artista' | 'artista Internacional' | 'productor' | 'deejay' | 'break dance' | 'graffiti' | 'locutor';
 

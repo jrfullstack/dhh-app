@@ -21,7 +21,7 @@ interface SeedArtist{
     },
 }
 
-type ValidTypes = 'artista' | 'artista Internacional' | 'productor' | 'deejay' | 'break dance' | 'graffiti';
+type ValidTypes = 'artista' | 'artista Internacional' | 'productor' | 'deejay' | 'break dance' | 'graffiti' | 'locutor';
 
 interface SeedData {
     artistas: SeedArtist[],
@@ -59,12 +59,12 @@ export const initialData: SeedData = {
 
             seguidores: 10,
             redes: {
-                facebook: "lapizconciente",
-                instagram: "lapizconciente",
-                twitter: "lapizconciente",
-                tiktok: "lapizconciente",
-                spotify: "lapizconciente",
-                youtube: "lapizconciente",
+                facebook: "Redimi2",
+                instagram: "Redimi2",
+                twitter: "Redimi2",
+                tiktok: "Redimi2",
+                spotify: "Redimi2",
+                youtube: "Redimi2",
             },
 
             biografia: {
@@ -93,12 +93,12 @@ export const initialData: SeedData = {
 
             seguidores: 10,
             redes: {
-                facebook: "lapizconciente",
-                instagram: "lapizconciente",
-                twitter: "lapizconciente",
-                tiktok: "lapizconciente",
-                spotify: "lapizconciente",
-                youtube: "lapizconciente",
+                facebook: "Toxic Crow",
+                instagram: "Toxic Crow",
+                twitter: "Toxic Crow",
+                tiktok: "Toxic Crow",
+                spotify: "Toxic Crow",
+                youtube: "Toxic Crow",
             },
 
             biografia: {
@@ -127,19 +127,19 @@ export const initialData: SeedData = {
 
             seguidores: 10,
             redes: {
-                facebook: "lapizconciente",
-                instagram: "lapizconciente",
-                twitter: "lapizconciente",
-                tiktok: "lapizconciente",
-                spotify: "lapizconciente",
-                youtube: "lapizconciente",
+                facebook: "Dj Strike One",
+                instagram: "Dj Strike One",
+                twitter: "Dj Strike One",
+                tiktok: "Dj Strike One",
+                spotify: "Dj Strike One",
+                youtube: "Dj Strike One",
             },
 
             biografia: {
                 texto: "Rapero dominicano oriundo de los minas"
             },
 
-            tipo: ["deejay"],
+            tipo: ["deejay", "productor"],
 
             // videos: {
             //     musicales: ["vocales", "internacional"]
@@ -161,12 +161,12 @@ export const initialData: SeedData = {
 
             seguidores: 10,
             redes: {
-                facebook: "lapizconciente",
-                instagram: "lapizconciente",
-                twitter: "lapizconciente",
-                tiktok: "lapizconciente",
-                spotify: "lapizconciente",
-                youtube: "lapizconciente",
+                facebook: "Dkano",
+                instagram: "Dkano",
+                twitter: "Dkano",
+                tiktok: "Dkano",
+                spotify: "Dkano",
+                youtube: "Dkano",
             },
 
             biografia: {
@@ -195,12 +195,12 @@ export const initialData: SeedData = {
 
             seguidores: 10,
             redes: {
-                facebook: "lapizconciente",
-                instagram: "lapizconciente",
-                twitter: "lapizconciente",
-                tiktok: "lapizconciente",
-                spotify: "lapizconciente",
-                youtube: "lapizconciente",
+                facebook: "Bethoveen Villaman",
+                instagram: "Bethoveen Villaman",
+                twitter: "Bethoveen Villaman",
+                tiktok: "Bethoveen Villaman",
+                spotify: "Bethoveen Villaman",
+                youtube: "Bethoveen Villaman",
             },
 
             biografia: {
@@ -208,18 +208,94 @@ export const initialData: SeedData = {
             },
 
             tipo: ["artista"],
+        },
+        {
+            interprete: "Dj Jimmy",
+            imgPortada: 'djjimmy.jpg',
+            // galeriaImg: ['lapizconciente1.jpg', 'lapizconciente2.jpg', 'lapizconciente3.jpg',],
+            slug: "djjimmy",
 
-            // videos: {
-            //     musicales: ["vocales", "internacional"]
-            // },
+            seguidores: 10,
+            redes: {
+                facebook: "Dj Jimmy",
+                instagram: "Dj Jimmy",
+                twitter: "Dj Jimmy",
+                tiktok: "Dj Jimmy",
+                spotify: "Dj Jimmy",
+                youtube: "Dj Jimmy",
+            },
 
-            // audios: {
-            //     musicales: ["vocales", "internacional"]
-            // },
+            biografia: {
+                texto: "Rapero dominicano oriundo de los minas"
+            },
 
-            // albumes: ["vocales", "internacional"],
+            tipo: ["deejay", "productor"],
+        },
+        {
+            interprete: "Swanni Santana",
+            imgPortada: 'swanni.jpg',
+            // galeriaImg: ['lapizconciente1.jpg', 'lapizconciente2.jpg', 'lapizconciente3.jpg',],
+            slug: "swannisantana",
 
-            // comentarios: ["el mejor", "duro"],
+            seguidores: 10,
+            redes: {
+                facebook: "Swanni Santana",
+                instagram: "Swanni Santana",
+                twitter: "Swanni Santana",
+                tiktok: "Swanni Santana",
+                spotify: "Swanni Santana",
+                youtube: "Swanni Santana",
+            },
+
+            biografia: {
+                texto: "Rapero dominicano oriundo de los minas"
+            },
+
+            tipo: ["locutor"],
+        },
+        {
+            interprete: "Mr Jota",
+            imgPortada: 'mrjota.jpg',
+            // galeriaImg: ['lapizconciente1.jpg', 'lapizconciente2.jpg', 'lapizconciente3.jpg',],
+            slug: "mrjota",
+
+            seguidores: 10,
+            redes: {
+                facebook: "Mr Jota",
+                instagram: "Mr Jota",
+                twitter: "Mr Jota",
+                tiktok: "Mr Jota",
+                spotify: "Mr Jota",
+                youtube: "Mr Jota",
+            },
+
+            biografia: {
+                texto: "Rapero dominicano oriundo de los minas"
+            },
+
+            tipo: ["locutor"],
+        },
+        {
+            interprete: "Charlie Valens",
+            imgPortada: 'charlievalens.jpg',
+            // galeriaImg: ['lapizconciente1.jpg', 'lapizconciente2.jpg', 'lapizconciente3.jpg',],
+            slug: "charlievalens",
+
+            seguidores: 10,
+            redes: {
+                facebook: "charlievalensoficial",
+                instagram: "charlievalensoficial",
+                twitter: "charlievalensoficial",
+                tiktok: "charlievalensoficial",
+                spotify: "charlievalensoficial",
+                youtube: "charlievalensoficial",
+            },
+
+            biografia: {
+                texto: "Rapero dominicano oriundo de los minas"
+            },
+
+            tipo: ["locutor"],
         },
 
 

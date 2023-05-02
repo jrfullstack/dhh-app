@@ -6,12 +6,11 @@ import { styled, alpha } from "@mui/material/styles";
 import Menu, { MenuProps } from "@mui/material/Menu";
 import { useRouter } from "next/router";
 import { Button, Link, MenuItem } from "@mui/material";
-import {
-    AccountCircleOutlined,
-    AdjustOutlined,
+import {    
+    CampaignOutlined,
+    HeadsetOutlined,
     InterpreterModeOutlined,
     MicNoneOutlined,
-    NotificationsNoneOutlined,
     SportsMartialArtsOutlined,
     TuneOutlined,
     VrpanoOutlined,
@@ -87,6 +86,7 @@ export const DropDownArtistas = () => {
                     asPath === "/artistas/category/deejay" ||
                     asPath === "/artistas/category/grafiteros" ||
                     asPath === "/artistas/category/mcsinternacionales" ||
+                    asPath === "/artistas/category/locutores" ||
                     asPath === "/artistas/category/productores"
                         ? "primary"
                         : "info"
@@ -104,21 +104,24 @@ export const DropDownArtistas = () => {
                 anchorEl={anchorEl}
                 open={open}
                 onClose={handleClose}>
+
                 <NextLink href="/artistas/category/mcs" passHref legacyBehavior>
                     <MenuItem onClick={handleClose} disableRipple>
                         <MicNoneOutlined />
                         <Link>MC`s</Link>
                     </MenuItem>
                 </NextLink>
+
                 <NextLink
                     href="/artistas/category/deejay"
                     passHref
                     legacyBehavior>
                     <MenuItem onClick={handleClose} disableRipple>
-                        <AdjustOutlined />
+                        <HeadsetOutlined />
                         <Link>Deejay`s</Link>
                     </MenuItem>
                 </NextLink>
+
                 {/* <Divider sx={{ my: 0.5 }} /> */}
                 <NextLink
                     href="/artistas/category/grafiteros"
@@ -129,6 +132,7 @@ export const DropDownArtistas = () => {
                         <Link>Grafiteros</Link>
                     </MenuItem>
                 </NextLink>
+
                 <NextLink
                     href="/artistas/category/breakdancer"
                     passHref
@@ -138,6 +142,7 @@ export const DropDownArtistas = () => {
                         <Link>Break Dancer`s</Link>
                     </MenuItem>
                 </NextLink>
+
                 <NextLink
                     href="/artistas/category/productores"
                     passHref
@@ -147,6 +152,17 @@ export const DropDownArtistas = () => {
                         <Link>Productores</Link>
                     </MenuItem>
                 </NextLink>
+
+                <NextLink
+                    href="/artistas/category/locutores"
+                    passHref
+                    legacyBehavior>
+                    <MenuItem onClick={handleClose} disableRipple>
+                        <CampaignOutlined />
+                        <Link>Locutores</Link>
+                    </MenuItem>                    
+                </NextLink>
+
                 <NextLink
                     href="/artistas/category/mcsinternacionales"
                     passHref
@@ -156,6 +172,7 @@ export const DropDownArtistas = () => {
                         <Link>Colaboradores Int.</Link>
                     </MenuItem>
                 </NextLink>
+                
             </StyledMenu>
         </>
     );

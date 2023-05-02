@@ -1,12 +1,8 @@
 import { useState } from "react";
+import { NextPage, GetServerSideProps } from 'next';
 import { Box, Grid, Paper, Tab, Tabs } from "@mui/material";
-// import Tab from "@mui/material/Tab";
 
-import { MainLayout } from "@/components/layouts"
-import { initialData } from "@/database/artists"
-import { ArtistProfile } from "@/components/artistas/ArtistProfile";
-import { ArtistNavi } from "@/components/artistas/ArtistNavi";
-import { TabContext, TabList, TabPanel } from "@mui/lab";
+import { TabContext, TabPanel } from "@mui/lab";
 import {
     AlbumOutlined,
     CollectionsOutlined,
@@ -17,11 +13,21 @@ import {
     OndemandVideoOutlined,
 } from "@mui/icons-material";
 
+import { MainLayout } from "@/components/layouts"
+import { ArtistProfile } from "@/components/artistas/ArtistProfile";
 
-const artista = initialData.artistas[1];
+import { dbArtists } from "@/database";
+import { IArtist } from "@/interfaces";
 
-export default function Slug()  {
-	const [value, setValue] = useState("1");
+
+
+interface Props {
+    artista: IArtist
+}
+
+const ArtistPage:NextPage<Props> = ({artista}) => {
+
+    const [value, setValue] = useState("1");
 
     const handleChange = (event: React.SyntheticEvent, newValue: string) => {
         setValue(newValue);
@@ -130,3 +136,30 @@ export default function Slug()  {
     );
 }
 
+// You should use getServerSideProps when:
+// - Only if you need to pre-render a page whose data must be fetched at request time
+
+
+export const getServerSideProps: GetServerSideProps = async ({params}) => {
+
+    const { slug = '' } = params as {slug: string};
+
+    const artista = await dbArtists.getArtistBySlug(slug);
+
+    if(!artista){
+        return {
+            redirect: {
+                destination: '/',
+                permanent: false
+            }
+        }
+    }
+
+    return {
+        props: {
+            artista
+        }
+    }
+}
+
+export default ArtistPage;

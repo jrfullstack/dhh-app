@@ -9,10 +9,10 @@ interface Props {
 
 export const ArtistCard: FC<Props> = ({artista}) => {
     return (
-        <Grid item xs={6} sm={2} className="fadeIn">
+        <Grid item xs={6} sm={4} md={2} className="fadeIn">
             <Card sx={{ maxWidth: 300 }} variant="outlined">
                 <NextLink
-                    href="/artistas/slug"
+                    href={`/artistas/${artista.slug}`}
                     passHref
                     legacyBehavior
                     prefetch={false}>
@@ -60,7 +60,7 @@ export const ArtistCard: FC<Props> = ({artista}) => {
                             fontSize="small"
                             sx={{ pr: "3px", color: "GrayText" }}
                         />
-                        {artista.seguidores} Me gusta
+                        {artista.seguidores} Seguidores
                     </Box>
 
                     <Button

@@ -13,7 +13,7 @@ const BreakDancersPage: NextPage = () => {
 
     return (
         <MainLayout
-            title={"Artistas | DHH"}
+            title={"Break Dancers | DHH"}
             pageDescription={"Seccion de Break Dancers dominicanos"}>
             <Typography variant="h1" sx={{ mb: 1 }}>
                 <Box

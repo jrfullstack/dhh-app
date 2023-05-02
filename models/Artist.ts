@@ -10,7 +10,7 @@ const artistSchema = new Schema({
     tipo:[{
         type: String,
         enum:{
-            values: ['artista', 'artista internacional', 'productor', 'deejay', 'break dance', 'graffiti'],
+            values: ['artista', 'artista internacional', 'productor', 'deejay', 'break dance', 'graffiti', 'locutor'],
             message: '{VALUE} no es un tipo valido'
         }
     }],

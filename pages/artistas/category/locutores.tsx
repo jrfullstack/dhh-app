@@ -1,20 +1,22 @@
 import { NextPage } from "next";
 import { Box, Typography } from "@mui/material";
 
-import { TuneOutlined } from "@mui/icons-material";
+import { CampaignOutlined } from "@mui/icons-material";
 
 import { MainLayout } from "@/components/layouts";
 import { ArtistaList } from "@/components/artistas";
 import { useArtists } from "@/hooks";
 import { FullScreenLoading } from "@/components/ui";
 
-const ProductoresPage: NextPage = () => {
-    const { artists, isLoading } = useArtists("/artists?tipo=productor");
+const LocutoresPage: NextPage = () => {
+    const { artists, isLoading } = useArtists("/artists?tipo=locutor");
 
     return (
         <MainLayout
-            title={"Artistas | DHH"}
-            pageDescription={"Seccion de Productores dominicanos"}>
+            title={"Locutores | DHH"}
+            pageDescription={
+                "Seccion de Locutores que apoyan el Hip Hop dominicanos"
+            }>
             <Typography variant="h1" sx={{ mb: 1 }}>
                 <Box
                     component="span"
@@ -22,7 +24,7 @@ const ProductoresPage: NextPage = () => {
                         display: "flex",
                         alignItems: "center",
                     }}>
-                    <TuneOutlined
+                    <CampaignOutlined
                         fontSize="large"
                         sx={{
                             mr: 2,
@@ -33,7 +35,7 @@ const ProductoresPage: NextPage = () => {
                             color: "white",
                         }}
                     />
-                    Productores
+                    Locutores y/o Presenadores
                 </Box>
             </Typography>
 
@@ -46,4 +48,4 @@ const ProductoresPage: NextPage = () => {
     );
 };
 
-export default ProductoresPage;
+export default LocutoresPage;
