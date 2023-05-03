@@ -17,3 +17,14 @@ export const getArtistBySlug = async(slug: string): Promise<IArtist | null> => {
     return JSON.parse(JSON.stringify(artist));
 
 }
+
+interface ArtistSlug {
+    slug: string;
+}
+export const getAllArtistsSlugs = async(): Promise<ArtistSlug[]> => {
+    await db.connect();
+    const slugs = await Artist.find().select('slug -_id').lean();
+    await db.disconnect();
+
+    return slugs;
+}
