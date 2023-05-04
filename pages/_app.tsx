@@ -12,6 +12,7 @@ export interface MUIAppProps extends AppProps {
 }
 
 export default function App({ Component, pageProps, emotionCache }: MUIAppProps) {
+    
     return (
         <PageProvider emotionCache={emotionCache}>
             <SWRConfig
@@ -27,3 +28,4 @@ export default function App({ Component, pageProps, emotionCache }: MUIAppProps)
         </PageProvider>
     );
 }
+

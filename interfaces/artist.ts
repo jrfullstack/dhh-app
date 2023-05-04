@@ -5,6 +5,7 @@ export interface IArtist {
     galeriaImg?: string[];
     slug: string;
     seguidores?: number;
+    tags?: string[];
 
     tipo: ITypes[],
 

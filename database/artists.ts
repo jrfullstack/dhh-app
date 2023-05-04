@@ -7,6 +7,7 @@ interface SeedArtist{
     slug: string;
     seguidores?: number;    
     tipo: ValidTypes[],
+    tags?: string[];
     redes?: {
         facebook?: string;
         instagram?: string;

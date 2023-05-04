@@ -7,6 +7,7 @@ const artistSchema = new Schema({
     galeriaImg: [{ type: String },],
     slug: { type: String, require: true, unique: true }, 
     seguidores: { type: Number, default:0 }, 
+    tags: [{ type: String },],
     tipo:[{
         type: String,
         enum:{
@@ -31,7 +32,7 @@ const artistSchema = new Schema({
 });
 
 // indice para las busquedas
-artistSchema.index({ interprete: 'text' });
+artistSchema.index({ interprete: 'text', tags: 'text' });
 
 const Artist: Model<IArtist> = mongoose.models.Artist || model('Artist', artistSchema);
 

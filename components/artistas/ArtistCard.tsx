@@ -2,12 +2,14 @@ import { FC } from 'react';
 import NextLink from "next/link";
 import { IArtist } from '@/interfaces';
 import { Box, Button, Card, CardActionArea, CardContent, CardMedia, Grid, Link, Typography } from '@mui/material';
-import { FavoriteBorderOutlined, FavoriteOutlined } from '@mui/icons-material';
+import { FavoriteBorderOutlined } from '@mui/icons-material';
 interface Props {
   artista: IArtist;
 }
 
 export const ArtistCard: FC<Props> = ({artista}) => {
+
+    
     return (
         <Grid item xs={6} sm={4} md={2} className="fadeIn">
             <Card sx={{ maxWidth: 300 }} variant="outlined">

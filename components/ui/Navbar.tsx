@@ -13,8 +13,22 @@ import { UiContext } from "@/context";
 
 export const Navbar = () => {
 
+    const router = useRouter();
     const { asPath } = useRouter();
     const {toggleSideMenu} = useContext(UiContext);
+    const [searchTermMain, setSearchTermMain] = useState('');
+
+    const onSearchTerm = () => {
+        if(searchTermMain.trim().length === 0) return;
+        router.push(`/search/${searchTermMain}`);
+
+    }
+
+    const navigateTo = (url:string) => {
+        // toggleSideMenu();
+        router.push(url);
+    }
+    // console.log(searchTermMain)
     
 
 
@@ -36,9 +50,9 @@ export const Navbar = () => {
                     //         ? "none"
                     //         : { xs: "none", sm: "block" },
                     // }}
-                    className="fadeIn">
-                    <Paper
-                        component="form"
+                    // className="fadeIn"
+                >
+                    <Paper                       
                         sx={{
                             p: "1px 4px",
                             display: "flex",
@@ -46,11 +60,16 @@ export const Navbar = () => {
                             width: 400,
                         }}>
                         <InputBase
-                            sx={{ ml: 1, flex: 1 }}
-                            placeholder="Buscador"
-                            // inputProps={{ "aria-label": "search google maps" }}
+                            value={searchTermMain}
+                            onChange={(e) => setSearchTermMain(e.target.value)}
+                            onKeyUp={(e) => e.key === 'Enter' && onSearchTerm()}
+                            type="text"
+                            placeholder="Buscar..."
+                            inputProps={{ "aria-label": "search" }}
+                            sx={{ ml: 1, flex: 1 }}                            
                         />
                         <IconButton
+                            onClick={onSearchTerm}
                             type="button"
                             sx={{ p: "5px" }}
                             aria-label="search">
@@ -86,12 +105,12 @@ export const Navbar = () => {
                             </Button>
                         </Link>
                     </NextLink>
-                    <NextLink href="/category/audios" passHref legacyBehavior>
+                    <NextLink href="/audios" passHref legacyBehavior>
                         <Link>
                             <Button
                                 size="medium"
                                 color={
-                                    asPath === "/category/audios"
+                                    asPath === "/audios"
                                         ? "primary"
                                         : "info"
                                 }>
@@ -99,12 +118,12 @@ export const Navbar = () => {
                             </Button>
                         </Link>
                     </NextLink>
-                    <NextLink href="/category/videos" passHref legacyBehavior>
+                    <NextLink href="/videos" passHref legacyBehavior>
                         <Link>
                             <Button
                                 size="medium"
                                 color={
-                                    asPath === "/category/videos"
+                                    asPath === "/videos"
                                         ? "primary"
                                         : "info"
                                 }>
