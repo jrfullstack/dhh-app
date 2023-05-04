@@ -1,36 +1,25 @@
 import { useContext, useState } from "react";
 import NextLink from "next/link";
 import { useRouter } from 'next/router';
-import { AppBar, Badge, Box, Button, IconButton, InputBase, Link, Menu, MenuItem, Paper, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Button, IconButton, InputBase, Link, Paper, Toolbar, Typography } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { AccountCircleOutlined, AdjustOutlined, InterpreterModeOutlined, MicNoneOutlined, NotificationsNoneOutlined, SportsMartialArtsOutlined, TuneOutlined, VrpanoOutlined } from "@mui/icons-material";
+import { AccountCircleOutlined, SearchOutlined } from "@mui/icons-material";
 import ThemeUpdater from "../themeMode/ThemeUpdater";
 import { DropDownArtistas } from "./DropDownArtistas";
 import { UiContext } from "@/context";
 
 
-
-
 export const Navbar = () => {
 
-    const router = useRouter();
-    const { asPath } = useRouter();
+    const { asPath, push } = useRouter();
     const {toggleSideMenu} = useContext(UiContext);
     const [searchTermMain, setSearchTermMain] = useState('');
 
     const onSearchTerm = () => {
         if(searchTermMain.trim().length === 0) return;
-        router.push(`/search/${searchTermMain}`);
+        push(`/search/${searchTermMain}`);
 
     }
-
-    const navigateTo = (url:string) => {
-        // toggleSideMenu();
-        router.push(url);
-    }
-    // console.log(searchTermMain)
-    
-
 
     return (
         <AppBar>
@@ -45,14 +34,9 @@ export const Navbar = () => {
                 <Box flex={1} />
 
                 <Box
-                    // sx={{
-                    //     display: isSearchVisible
-                    //         ? "none"
-                    //         : { xs: "none", sm: "block" },
-                    // }}
-                    // className="fadeIn"
-                >
-                    <Paper                       
+                    sx={{ display: { xs: "none", sm: "none", md: "flex" } }}
+                    className="fadeIn">
+                    <Paper
                         sx={{
                             p: "1px 4px",
                             display: "flex",
@@ -62,11 +46,11 @@ export const Navbar = () => {
                         <InputBase
                             value={searchTermMain}
                             onChange={(e) => setSearchTermMain(e.target.value)}
-                            onKeyUp={(e) => e.key === 'Enter' && onSearchTerm()}
+                            onKeyUp={(e) => e.key === "Enter" && onSearchTerm()}
                             type="text"
                             placeholder="Buscar..."
                             inputProps={{ "aria-label": "search" }}
-                            sx={{ ml: 1, flex: 1 }}                            
+                            sx={{ ml: 1, flex: 1 }}
                         />
                         <IconButton
                             onClick={onSearchTerm}
@@ -79,13 +63,30 @@ export const Navbar = () => {
                 </Box>
                 <Box flex={1} />
                 <Box>
+                    <Button
+                        onClick={toggleSideMenu}
+                        className="fadeIn"
+                        sx={{
+                            display: {
+                                xs: "inline-flex",
+                                sm: "inline-flex",
+                                md: "none",
+                            },
+                        }}>
+                        <SearchOutlined />
+                    </Button>
                     {/* <Button aria-label="search">
                         <Badge badgeContent={2} color="secondary">
                             <NotificationsNoneOutlined />
                         </Badge>
                     </Button> */}
 
-                    <Button aria-label="Account">
+                    <Button
+                        aria-label="Account"
+                        className="fadeIn"
+                        sx={{
+                            display: { xs: "none", sm: "inline-flex" },
+                        }}>
                         <AccountCircleOutlined />
                     </Button>
                     <ThemeUpdater />
@@ -93,7 +94,13 @@ export const Navbar = () => {
                 </Box>
             </Toolbar>
             {/* <Divider /> */}
-            <Toolbar component="nav" variant="dense" sx={{ boxShadow: 1 }}>
+            <Toolbar
+                component="nav"
+                variant="dense"
+                sx={{
+                    boxShadow: 1,
+                    display: { xs: "none", sm: "flex" },
+                }}>
                 <Box flex={1} />
                 <Box sx={{ ml: 0.5 }}>
                     <NextLink href="/" passHref legacyBehavior>
@@ -110,9 +117,7 @@ export const Navbar = () => {
                             <Button
                                 size="medium"
                                 color={
-                                    asPath === "/audios"
-                                        ? "primary"
-                                        : "info"
+                                    asPath === "/audios" ? "primary" : "info"
                                 }>
                                 Audios
                             </Button>
@@ -123,9 +128,7 @@ export const Navbar = () => {
                             <Button
                                 size="medium"
                                 color={
-                                    asPath === "/videos"
-                                        ? "primary"
-                                        : "info"
+                                    asPath === "/videos" ? "primary" : "info"
                                 }>
                                 Videos
                             </Button>

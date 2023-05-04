@@ -24,15 +24,19 @@ const ThemeUpdater: FC<{}> = () => {
         <Button
             variant="contained"
             aria-label="Theme"
-            sx={{ paddingLeft : "0px", paddingY: '7px' }}
+            className="fadeIn"
+            sx={{
+                paddingLeft: "0px",
+                paddingY: "7px",
+                display: { xs: "none", sm: "inline-flex" },
+            }}
+            // sx={{  }}
             endIcon={
                 resolvedTheme === "light" ? <DarkModeIcon /> : <LightModeIcon />
-            } 
+            }
             onClick={() =>
                 setTheme(resolvedTheme === "light" ? "dark" : "light")
-            }>
-            
-        </Button>
+            }></Button>
     );
 };
 
