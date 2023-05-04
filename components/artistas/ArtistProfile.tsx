@@ -20,11 +20,16 @@ export const ArtistProfile: FC<Props> = ({artista}) => {
             sx={{
                 paddingY: 3,
                 paddingX: 4,
-                display: "flex",
+                display: { xs: "block", sm: "flex" },
                 alignItems: "center",
                 justifyContent: "space-between",
             }}>
-            <Box>
+            <Box
+                sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                }}>
                 <Avatar
                     alt={artista.interprete}
                     src={`/img/artistas/${artista.imgPortada}`}
@@ -32,11 +37,25 @@ export const ArtistProfile: FC<Props> = ({artista}) => {
                         width: 150,
                         height: 150,
                         border: "2px solid #DE260E",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
                     }}
                 />
             </Box>
-            <Box>
-                <Typography variant="h1" component="h1" color="initial">
+            <Box
+                sx={{
+                    display: "block",
+                    alignItems: "center",
+                    justifyContent: "center",
+                }}>
+                <Typography
+                    variant="h1"
+                    component="h1"
+                    color="initial"
+                    sx={{
+                        textAlign: 'center'
+                     }}>
                     {artista.interprete}
                 </Typography>
                 <List sx={{ textAlign: "center" }}>
@@ -46,7 +65,7 @@ export const ArtistProfile: FC<Props> = ({artista}) => {
                 </List>
                 <Box
                     sx={{
-                        mt: 1,
+                        my: 1,
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -70,7 +89,7 @@ export const ArtistProfile: FC<Props> = ({artista}) => {
                 </Button>
                 <Button
                     variant="contained"
-                    sx={{ mb: 2, paddingX: 3 }}
+                    sx={{ mb: 1, paddingX: 3 }}
                     color="error"
                     startIcon={<FavoriteBorderOutlined />}>
                     {/* <FavoriteOutlined /> */}
