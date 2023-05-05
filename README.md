@@ -1,7 +1,6 @@
 ## DHH App
 
-Este es mi primer proyecto personal.
-Es una App de entretenimiento, musica video, lirica, etc.
+Este es mi primer proyecto personal, es una App de entretenimiento, musica, video, lirica, etc.
 ### Dependencias hasta el momento
 - NextJS
 - Material UI
