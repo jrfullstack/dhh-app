@@ -1,7 +1,6 @@
-import React, { FC } from 'react';
+
 import { Groups2Rounded } from '@mui/icons-material';
 import { Box, Typography } from '@mui/material';
-import { initialData } from '@/database/artists';
 import { useArtists } from '@/hooks';
 import { MainLayout } from '@/components/layouts';
 import { ArtistaList } from '@/components/artistas';

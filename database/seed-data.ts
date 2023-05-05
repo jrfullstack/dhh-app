@@ -1,4 +1,4 @@
-
+import bcrypt from 'bcryptjs';
 
 interface SeedArtist{    
     interprete: string;
@@ -22,13 +22,40 @@ interface SeedArtist{
     },
 }
 
+interface SeedUser {
+    name    : string;
+    email   : string;
+    password: string;
+    role    : 'admin'|'usuario'
+}
+
 type ValidTypes = 'artista' | 'artista Internacional' | 'productor' | 'deejay' | 'break dance' | 'graffiti' | 'locutor';
 
 interface SeedData {
-    artistas: SeedArtist[],
+    users: SeedUser[];
+    artistas: SeedArtist[];
 }
 
+
+
+
 export const initialData: SeedData = {
+    users: [
+        {
+            name: 'Dj Jimmy',
+            email: 'rapdominicano@hotmail.com',
+            password: bcrypt.hashSync('123456'),
+            role: 'admin'
+        },
+
+        {
+            name: 'Primer Usuario',
+            email: 'usuario1@gmail.com',
+            password: bcrypt.hashSync('123456'),
+            role: 'usuario'
+        },
+    ],
+
     artistas: [
         {
             interprete: "Lapiz Conciente",
