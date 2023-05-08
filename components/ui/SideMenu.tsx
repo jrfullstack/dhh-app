@@ -25,13 +25,15 @@ import {
     SearchOutlined,
     VpnKeyOutlined,
 } from "@mui/icons-material";
-import { UiContext } from "@/context";
+import { UiContext, AuthContext } from "@/context";
 import { useRouter } from "next/router";
 
 export const SideMenu = () => {
+
     const router = useRouter();
     const {isMenuOpen, toggleSideMenu} = useContext(UiContext);
     const [searchTerm, setSearchTerm] = useState('');
+    const {user, isLoggedIn} = useContext(AuthContext);
 
     const onSearchTerm = () => {
         if(searchTerm.trim().length === 0) return;
@@ -43,6 +45,7 @@ export const SideMenu = () => {
         toggleSideMenu();
         router.push(url);
     }
+
     return (
         <Drawer
             open={isMenuOpen}
@@ -51,8 +54,7 @@ export const SideMenu = () => {
                 backdropFilter: "blur(4px)",
                 transition: "all 0.5s ease-out",
             }}
-            onClose={toggleSideMenu}
-        >
+            onClose={toggleSideMenu}>
             <Box sx={{ width: 250, paddingTop: 5 }}>
                 <List>
                     <ListItem>
@@ -60,7 +62,7 @@ export const SideMenu = () => {
                             autoFocus
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            onKeyUp={(e) => e.key === 'Enter' && onSearchTerm()}
+                            onKeyUp={(e) => e.key === "Enter" && onSearchTerm()}
                             type="text"
                             placeholder="Buscar..."
                             endAdornment={
@@ -73,41 +75,49 @@ export const SideMenu = () => {
                         />
                     </ListItem>
 
-                    <ListSubheader sx={{ display: { xs: "", sm: "none" } }}>
-                        Usuario
-                    </ListSubheader>
+                    {/* si esta autenticado */}
+                    {isLoggedIn && (
+                        <>
+                            <ListSubheader
+                                sx={{ display: { xs: "", sm: "none" } }}>
+                                Usuario
+                            </ListSubheader>
 
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <AccountCircleOutlined />
-                        </ListItemIcon>
-                        <ListItemText primary={"Perfil"} />
-                    </ListItemButton>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <AccountCircleOutlined />
+                                </ListItemIcon>
+                                <ListItemText primary={"Perfil"} />
+                            </ListItemButton>
 
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <ConfirmationNumberOutlined />
-                        </ListItemIcon>
-                        <ListItemText primary={"Mis Ordenes"} />
-                    </ListItemButton>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <ConfirmationNumberOutlined />
+                                </ListItemIcon>
+                                <ListItemText primary={"Mis Ordenes"} />
+                            </ListItemButton>
+                        </>
+                    )}
 
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <VpnKeyOutlined />
-                        </ListItemIcon>
-                        <ListItemText primary={"Ingresar"} />
-                    </ListItemButton>
-
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <LoginOutlined />
-                        </ListItemIcon>
-                        <ListItemText primary={"Salir"} />
-                    </ListItemButton>
+                    {isLoggedIn ? (
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <LoginOutlined />
+                            </ListItemIcon>
+                            <ListItemText primary={"Salir"} />
+                        </ListItemButton>
+                    ) : (
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <VpnKeyOutlined />
+                            </ListItemIcon>
+                            <ListItemText primary={"Ingresar"} />
+                        </ListItemButton>
+                    )}
 
                     {/* Categorias */}
                     <Divider sx={{ display: { xs: "", sm: "none" } }} />
-                    
+
                     <ListSubheader sx={{ display: { xs: "", sm: "none" } }}>
                         Categorias
                     </ListSubheader>
@@ -139,29 +149,37 @@ export const SideMenu = () => {
                         <ListItemText primary={"Artistas"} />
                     </ListItemButton>
 
+                    
                     {/* Admin */}
-                    <Divider />
-                    <ListSubheader>Administracion</ListSubheader>
+                    {
+                        user?.role === 'admin' && (
+                            <>
+                                <Divider />
+                                <ListSubheader>Administracion</ListSubheader>
 
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <CategoryOutlined />
-                        </ListItemIcon>
-                        <ListItemText primary={"Productos"} />
-                    </ListItemButton>
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <ConfirmationNumberOutlined />
-                        </ListItemIcon>
-                        <ListItemText primary={"Ordenes"} />
-                    </ListItemButton>
+                                <ListItemButton>
+                                    <ListItemIcon>
+                                        <CategoryOutlined />
+                                    </ListItemIcon>
+                                    <ListItemText primary={"Productos"} />
+                                </ListItemButton>
+                                <ListItemButton>
+                                    <ListItemIcon>
+                                        <ConfirmationNumberOutlined />
+                                    </ListItemIcon>
+                                    <ListItemText primary={"Ordenes"} />
+                                </ListItemButton>
 
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <AdminPanelSettings />
-                        </ListItemIcon>
-                        <ListItemText primary={"Usuarios"} />
-                    </ListItemButton>
+                                <ListItemButton>
+                                    <ListItemIcon>
+                                        <AdminPanelSettings />
+                                    </ListItemIcon>
+                                    <ListItemText primary={"Usuarios"} />
+                                </ListItemButton>
+                            </>
+                        )
+                    }
+                    
                 </List>
             </Box>
         </Drawer>

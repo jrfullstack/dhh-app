@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren, useReducer, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useSession, signOut } from "next-auth/react";
+// import { useSession, signOut } from "next-auth/react";
 import Cookies from 'js-cookie';
 import axios from 'axios';
 
@@ -106,7 +106,7 @@ export const AuthProvider: FC<PropsWithChildren> = ({children}) => {
         Cookies.remove("country");
         Cookies.remove("phone");
 
-        signOut();
+        // signOut();
 
         // Cookies.remove('token');
         // router.reload();
