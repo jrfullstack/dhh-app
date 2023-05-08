@@ -34,12 +34,14 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
 const registerUser = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     const { email = '', password = '', name = '' } = req.body as {email: string, password: string, name: string};    
 
+    // validar password
     if(password.length < 6 ){
         return res.status(400).json({
             message: 'La contraseña debe de ser de 6 caracteres o mas'
         })
     }
 
+    // validar nombre
     if (name.length < 2) {
         return res.status(400).json({
             message: 'El nombre debe de ser de 2 caracteres o mas'
@@ -53,6 +55,7 @@ const registerUser = async (req: NextApiRequest, res: NextApiResponse<Data>) => 
         })
     }
 
+    //validacion q el email no esta ya registrado
     await db.connect();
     const user = await User.findOne({ email });
 
@@ -65,7 +68,7 @@ const registerUser = async (req: NextApiRequest, res: NextApiResponse<Data>) => 
     const newUser = new User({
         email: email.toLocaleLowerCase(),
         password: bcrypt.hashSync(password),
-        role: 'client',
+        role: 'usuario',
         name,
     });
 
