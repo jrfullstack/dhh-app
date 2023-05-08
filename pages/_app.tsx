@@ -5,7 +5,7 @@ import type { AppProps } from "next/app";
 import { SWRConfig } from "swr";
 
 import PageProvider from "@/helpers/PageProvider";
-import { UiProvider } from "@/context";
+import { AuthProvider, UiProvider } from "@/context";
 
 export interface MUIAppProps extends AppProps {
     emotionCache?: EmotionCache;
@@ -19,11 +19,12 @@ export default function App({ Component, pageProps, emotionCache }: MUIAppProps)
                 value={{
                     fetcher: (resource, init) =>
                         fetch(resource, init).then((res) => res.json()),
-                }}
-            >
-                <UiProvider>
-                    <Component {...pageProps} />
-                </UiProvider>
+                }}>
+                <AuthProvider>
+                    <UiProvider>
+                        <Component {...pageProps} />
+                    </UiProvider>
+                </AuthProvider>
             </SWRConfig>
         </PageProvider>
     );

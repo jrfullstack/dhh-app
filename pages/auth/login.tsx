@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { GetServerSideProps } from 'next';
 import NextLink from 'next/link';
 import { getSession, signIn, getProviders } from 'next-auth/react';
+
 import { Box, Button, Grid, TextField, Typography, Link, Chip, Divider } from '@mui/material';
 import { ErrorOutline } from '@mui/icons-material';
 import { useForm } from 'react-hook-form';
 
-
+import { AuthContext } from '@/context';
 import { AuthLayout } from "../../components/layouts";
 import { validations } from '../../utils';
 import { useRouter } from 'next/router';
@@ -20,7 +21,7 @@ type FormData = {
 const LoginPage = () => {
 
     const router = useRouter();
-    // const {loginUser: LoginUser} = useContext(AuthContext);
+    const {loginUser: LoginUser} = useContext(AuthContext);
 
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
     const [showError, setShowError] = useState(false);
@@ -40,20 +41,20 @@ const LoginPage = () => {
 
         setShowError(false);
 
-        // const isValidLogin = await LoginUser(email, password);
+        const isValidLogin = await LoginUser(email, password);
 
-        // if(!isValidLogin) {
-        //     setShowError(true);
-        //     // ocultar nuevamente el error
-        //     setTimeout(() => setShowError(false), 3000);
-        //     return;
-        // }
+        if(!isValidLogin) {
+            setShowError(true);
+            // ocultar nuevamente el error
+            setTimeout(() => setShowError(false), 3000);
+            return;
+        }
 
-        // // regresar a la pantalla que estaba el usuario antes del ingresar 
-        // const destination = router.query.p?.toString() || '/';
-        // router.replace(destination);
+        // regresar a la pantalla que estaba el usuario antes del ingresar 
+        const destination = router.query.p?.toString() || '/';
+        router.replace(destination);
         // e.preventDefault();
-        // await signIn('credentials', {email, password});
+        await signIn('credentials', {email, password});
     }
     
     return (

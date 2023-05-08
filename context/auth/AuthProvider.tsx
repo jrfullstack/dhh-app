@@ -6,7 +6,7 @@ import axios from 'axios';
 
 import { AuthContext, authReducer } from './';
 
-import { tiendaOnlineApi } from '../../api2';
+import { dhhApi } from '../../api2';
 import { IUser } from '../../interfaces';
 
 
@@ -23,22 +23,22 @@ const AUTH_INITIAL_STATE: AuthState = {
 export const AuthProvider: FC<PropsWithChildren> = ({children}) => {
 
     const [state, dispatch] = useReducer(authReducer, AUTH_INITIAL_STATE);
-    const {data, status} = useSession();
-    const router = useRouter();
-
-    useEffect(() => {
-      if(status === 'authenticated') {
-        // console.log({user: data?.user})
-        dispatch({type: '[Auth] - Login', payload: data?.user as IUser});
-      }    
-      
-    }, [status, data]);   
-
+    // const {data, status} = useSession();
+    // const router = useRouter();
 
     // useEffect(() => {
-    //     checkToken();    
+    //   if(status === 'authenticated') {
+    //     // console.log({user: data?.user})
+    //     dispatch({type: '[Auth] - Login', payload: data?.user as IUser});
+    //   }    
       
-    // }, [])
+    // }, [status, data]);   
+
+
+    useEffect(() => {
+        checkToken();    
+      
+    }, [])
 
     const checkToken = async() => {
 
@@ -47,19 +47,19 @@ export const AuthProvider: FC<PropsWithChildren> = ({children}) => {
         }
 
         try {
-            const { data } = await tiendaOnlineApi.get("/user/validate-token");
+            const { data } = await dhhApi.get("/user/validate-token");
             const {token, user} = data;
             Cookies.set('token', token);
             dispatch({type: '[Auth] - Login', payload: user});
         } catch (error) {
-            Cookies.remove('token')
+            Cookies.remove('token');
         }
     }
     
 
     const LoginUser = async(email: string, password: string): Promise<boolean> => {
         try {
-            const {data} = await tiendaOnlineApi.post('/user/login', {email, password});
+            const {data} = await dhhApi.post('/user/login', {email, password});
             const {token, user} = data;
             Cookies.set('token', token);
             dispatch({type: '[Auth] - Login', payload: user});
@@ -71,7 +71,7 @@ export const AuthProvider: FC<PropsWithChildren> = ({children}) => {
 
     const registerUser = async (name: string, email: string, password: string): Promise<{hasError: boolean; message?: string}> => {
         try {
-            const {data} = await tiendaOnlineApi.post('/user/register', {name, email, password});
+            const {data} = await dhhApi.post('/user/register', {name, email, password});
             const {token, user} = data;
             Cookies.set('token', token);
             dispatch({type: '[Auth] - Login', payload: user});

@@ -26,7 +26,7 @@ const RegisterPage = () => {
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm<FormData>();
     const [showError, setShowError] = useState(false);
-    const [errorMessage, setErrorMessage] = useState('')
+    const [errorMessage, setErrorMessage] = useState('');
     
     const onRegisteForm = async ({ email, password, name }: FormData) => {
         setShowError(false);
@@ -44,7 +44,7 @@ const RegisterPage = () => {
         // const destination = router.query.p?.toString() || "/";
         // router.replace(destination);
 
-        await signIn("credentials", { email, password });
+        // await signIn("credentials", { email, password });
 
     };
     return (
