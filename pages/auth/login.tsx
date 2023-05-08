@@ -53,7 +53,7 @@ const LoginPage = () => {
         // const destination = router.query.p?.toString() || '/';
         // router.replace(destination);
         // e.preventDefault();
-        await signIn('credentials', {email, password});
+        // await signIn('credentials', {email, password});
     }
     
     return (
@@ -90,7 +90,7 @@ const LoginPage = () => {
                         <Grid item xs={12}>
                             <TextField
                                 label="Contraseña"
-                                type={"password"}
+                                type="password"
                                 variant="filled"
                                 fullWidth
                                 {...register("password", {

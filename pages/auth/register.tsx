@@ -96,8 +96,8 @@ const RegisterPage = () => {
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
+                                type="password"
                                 label="Contraseña"
-                                type={"password"}
                                 variant="filled"
                                 fullWidth
                                 {...register("password", {
