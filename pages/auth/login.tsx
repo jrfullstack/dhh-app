@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { GetServerSideProps } from 'next';
 import NextLink from 'next/link';
 import { getSession, signIn, getProviders } from 'next-auth/react';
@@ -7,7 +7,6 @@ import { Box, Button, Grid, TextField, Typography, Link, Chip, Divider } from '@
 import { ErrorOutline } from '@mui/icons-material';
 import { useForm } from 'react-hook-form';
 
-import { AuthContext } from '@/context';
 import { AuthLayout } from "../../components/layouts";
 import { validations } from '../../utils';
 import { useRouter } from 'next/router';
@@ -21,40 +20,39 @@ type FormData = {
 const LoginPage = () => {
 
     const router = useRouter();
-    const {loginUser: LoginUser} = useContext(AuthContext);
 
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
     const [showError, setShowError] = useState(false);
 
-    // const [providers, setProviders] = useState<any>({});
+    const [providers, setProviders] = useState<any>({});
 
-    // useEffect(() => {
-    //   getProviders().then(prov => {
-    //     setProviders(prov)
-    //   })
+    useEffect(() => {
+      getProviders().then(prov => {
+        setProviders(prov)
+      })
     
       
-    // }, [])
+    }, [])
     
 
     const onLoginUser = async({email, password}:FormData) => {
 
         setShowError(false);
 
-        const isValidLogin = await LoginUser(email, password);
+        // const isValidLogin = await LoginUser(email, password);
 
-        if(!isValidLogin) {
-            setShowError(true);
-            // ocultar nuevamente el error
-            setTimeout(() => setShowError(false), 3000);
-            return;
-        }
+        // if(!isValidLogin) {
+        //     setShowError(true);
+        //     // ocultar nuevamente el error
+        //     setTimeout(() => setShowError(false), 3000);
+        //     return;
+        // }
 
-        // regresar a la pantalla que estaba el usuario antes del ingresar 
-        const destination = router.query.p?.toString() || '/';
-        router.replace(destination);
+        // // regresar a la pantalla que estaba el usuario antes del ingresar 
+        // const destination = router.query.p?.toString() || '/';
+        // router.replace(destination);
         // e.preventDefault();
-        // await signIn('credentials', {email, password});
+        await signIn('credentials', {email, password});
     }
     
     return (
@@ -162,14 +160,14 @@ const LoginPage = () => {
                             flexDirection="column">
                             <Divider sx={{ width: "100%", mb: 2 }} />
 
-                            {/* {Object.values(providers).map((provider: any) => {
+                            {Object.values(providers).map((provider: any) => {
                                 if (provider.id == "credentials") return null;
 
-                                let btnStyles = styles.githubBtn;
+                                let btnStyles = styles.twitterBtn;
 
                                 switch (provider.id) {
-                                    case "github":
-                                        btnStyles = styles.githubBtn;
+                                    case "twitter":
+                                        btnStyles = styles.twitterBtn;
                                         break;
 
                                     case "facebook":
@@ -193,7 +191,7 @@ const LoginPage = () => {
                                         {provider.name}
                                     </Button>
                                 );
-                            })} */}
+                            })}
                         </Grid>
                     </Grid>
                 </Box>

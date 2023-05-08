@@ -10,6 +10,12 @@
     border-color: black;
 }
 
+.twitterBtn {
+    background-color: #198CD8 !important;
+    color: aliceblue !important;
+    border-color: #167cbf;
+}
+
 .facebookBtn {
     background-color: #0c8ef2c5 !important;
     color: aliceblue !important;
@@ -24,6 +30,10 @@
 
 .githubBtn:hover {
     background-color: #32373a !important;
+}
+
+.twitterBtn:hover {
+    background-color: #0e4c7cd9 !important;
 }
 
 .facebookBtn:hover {

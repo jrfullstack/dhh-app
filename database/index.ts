@@ -1,5 +1,6 @@
 export * as db from './db';
 export * as dbArtists from './dbArtists';
+export * as dbUsers from './dbUsers';
 export * from './constants';
 
 

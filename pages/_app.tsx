@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 import { EmotionCache } from "@emotion/react";
+import { SessionProvider } from "next-auth/react";
 import type { AppProps } from "next/app";
 
 import { SWRConfig } from "swr";
@@ -14,19 +15,21 @@ export interface MUIAppProps extends AppProps {
 export default function App({ Component, pageProps, emotionCache }: MUIAppProps) {
     
     return (
-        <PageProvider emotionCache={emotionCache}>
-            <SWRConfig
-                value={{
-                    fetcher: (resource, init) =>
-                        fetch(resource, init).then((res) => res.json()),
-                }}>
-                <AuthProvider>
-                    <UiProvider>
-                        <Component {...pageProps} />
-                    </UiProvider>
-                </AuthProvider>
-            </SWRConfig>
-        </PageProvider>
+        <SessionProvider>
+            <PageProvider emotionCache={emotionCache}>
+                <SWRConfig
+                    value={{
+                        fetcher: (resource, init) =>
+                            fetch(resource, init).then((res) => res.json()),
+                    }}>
+                    <AuthProvider>
+                        <UiProvider>
+                            <Component {...pageProps} />
+                        </UiProvider>
+                    </AuthProvider>
+                </SWRConfig>
+            </PageProvider>
+        </SessionProvider>
     );
 }
 
