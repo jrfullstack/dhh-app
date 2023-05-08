@@ -24,7 +24,7 @@ export const AuthProvider: FC<PropsWithChildren> = ({children}) => {
 
     const [state, dispatch] = useReducer(authReducer, AUTH_INITIAL_STATE);
     // const {data, status} = useSession();
-    // const router = useRouter();
+    const router = useRouter();
 
     // useEffect(() => {
     //   if(status === 'authenticated') {
@@ -96,20 +96,11 @@ export const AuthProvider: FC<PropsWithChildren> = ({children}) => {
     }
 
     const logout = () => {
-        Cookies.remove("cart");
-        Cookies.remove("firstName");
-        Cookies.remove("lastName");
-        Cookies.remove("address");
-        Cookies.remove("address2");
-        Cookies.remove("zip");
-        Cookies.remove("city");
-        Cookies.remove("country");
-        Cookies.remove("phone");
-
+        
         // signOut();
 
-        // Cookies.remove('token');
-        // router.reload();
+        Cookies.remove('token');
+        router.reload();
     }
 
     return (

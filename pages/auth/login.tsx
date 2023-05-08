@@ -26,15 +26,15 @@ const LoginPage = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
     const [showError, setShowError] = useState(false);
 
-    const [providers, setProviders] = useState<any>({});
+    // const [providers, setProviders] = useState<any>({});
 
-    useEffect(() => {
-      getProviders().then(prov => {
-        setProviders(prov)
-      })
+    // useEffect(() => {
+    //   getProviders().then(prov => {
+    //     setProviders(prov)
+    //   })
     
       
-    }, [])
+    // }, [])
     
 
     const onLoginUser = async({email, password}:FormData) => {
@@ -54,7 +54,7 @@ const LoginPage = () => {
         const destination = router.query.p?.toString() || '/';
         router.replace(destination);
         // e.preventDefault();
-        await signIn('credentials', {email, password});
+        // await signIn('credentials', {email, password});
     }
     
     return (

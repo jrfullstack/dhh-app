@@ -33,7 +33,7 @@ export const SideMenu = () => {
     const router = useRouter();
     const {isMenuOpen, toggleSideMenu} = useContext(UiContext);
     const [searchTerm, setSearchTerm] = useState('');
-    const {user, isLoggedIn} = useContext(AuthContext);
+    const {user, isLoggedIn, logout} = useContext(AuthContext);
 
     const onSearchTerm = () => {
         if(searchTerm.trim().length === 0) return;
@@ -45,6 +45,10 @@ export const SideMenu = () => {
         toggleSideMenu();
         router.push(url);
     }
+
+    // const OnLogout = () => {
+    //     logout();
+    // }
 
     return (
         <Drawer
@@ -100,14 +104,14 @@ export const SideMenu = () => {
                     )}
 
                     {isLoggedIn ? (
-                        <ListItemButton>
+                        <ListItemButton onClick={logout}>
                             <ListItemIcon>
                                 <LoginOutlined />
                             </ListItemIcon>
                             <ListItemText primary={"Salir"} />
                         </ListItemButton>
                     ) : (
-                        <ListItemButton>
+                        <ListItemButton onClick={() => navigateTo(`/auth/login?p=${router.asPath}`)}>
                             <ListItemIcon>
                                 <VpnKeyOutlined />
                             </ListItemIcon>
@@ -149,37 +153,33 @@ export const SideMenu = () => {
                         <ListItemText primary={"Artistas"} />
                     </ListItemButton>
 
-                    
                     {/* Admin */}
-                    {
-                        user?.role === 'admin' && (
-                            <>
-                                <Divider />
-                                <ListSubheader>Administracion</ListSubheader>
+                    {user?.role === "admin" && (
+                        <>
+                            <Divider />
+                            <ListSubheader>Administracion</ListSubheader>
 
-                                <ListItemButton>
-                                    <ListItemIcon>
-                                        <CategoryOutlined />
-                                    </ListItemIcon>
-                                    <ListItemText primary={"Productos"} />
-                                </ListItemButton>
-                                <ListItemButton>
-                                    <ListItemIcon>
-                                        <ConfirmationNumberOutlined />
-                                    </ListItemIcon>
-                                    <ListItemText primary={"Ordenes"} />
-                                </ListItemButton>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <CategoryOutlined />
+                                </ListItemIcon>
+                                <ListItemText primary={"Productos"} />
+                            </ListItemButton>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <ConfirmationNumberOutlined />
+                                </ListItemIcon>
+                                <ListItemText primary={"Ordenes"} />
+                            </ListItemButton>
 
-                                <ListItemButton>
-                                    <ListItemIcon>
-                                        <AdminPanelSettings />
-                                    </ListItemIcon>
-                                    <ListItemText primary={"Usuarios"} />
-                                </ListItemButton>
-                            </>
-                        )
-                    }
-                    
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <AdminPanelSettings />
+                                </ListItemIcon>
+                                <ListItemText primary={"Usuarios"} />
+                            </ListItemButton>
+                        </>
+                    )}
                 </List>
             </Box>
         </Drawer>

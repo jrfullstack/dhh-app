@@ -41,8 +41,8 @@ const RegisterPage = () => {
         }
 
         // regresar a la pantalla que estaba el usuario antes del ingresar
-        // const destination = router.query.p?.toString() || "/";
-        // router.replace(destination);
+        const destination = router.query.p?.toString() || "/";
+        router.replace(destination);
 
         // await signIn("credentials", { email, password });
 
