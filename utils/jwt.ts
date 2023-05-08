@@ -9,7 +9,7 @@ export const signToken = (_id: string, email: string) => {
     }
 
     return jwt.sign(
-        // payload
+        // payload no poner informacion sencible
         {_id, email},
 
         // seed
