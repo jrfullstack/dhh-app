@@ -2,6 +2,7 @@ import mongoose, { Schema, model, Model } from 'mongoose';
 import { IAudio } from '@/interfaces';
 
 const audioSchema = new Schema ({
+    // _id: { type: String },
     interprete: [{ type: Schema.Types.ObjectId, ref: 'Artist', require: true }],
     titulo : {type: String, require: true},
     cover : {type: String},
