@@ -1,3 +1,5 @@
+import { IAudio } from "./audio";
+
 export interface IArtist {
     _id: string;
     interprete: string;
@@ -22,6 +24,7 @@ export interface IArtist {
         wikipedia?: string;
         texto?: string;
     },
+    audios?: IAudio[] | String[];
 
     createdAt: string;
     updatedAt: string;

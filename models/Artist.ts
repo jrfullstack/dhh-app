@@ -1,5 +1,5 @@
-import { IArtist } from '@/interfaces';
 import mongoose, {Schema, model, Model} from 'mongoose';
+import { IArtist } from '@/interfaces';
 
 const artistSchema = new Schema({
     interprete: {type: String, require: true},
@@ -27,6 +27,7 @@ const artistSchema = new Schema({
         wikipedia: { type: String },
         texto: { type: String },
     },
+    audios: [{ type: Schema.Types.ObjectId, ref: 'Audio' }],
 },{
     timestamps: true
 });
